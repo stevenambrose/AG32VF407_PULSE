@@ -8,9 +8,10 @@ void TestGpio()
   while (1) {
     UTIL_IdleUs(50e4);
     GPIO_Toggle(EXT_GPIO, GPIO_BIT1);
-    rValue = *((int *)0x60000004);
+    rValue = *((int *)0x60003000);
     printf("Test read reg value: %d\r\n", rValue);
-
+    UTIL_IdleUs(50e4);
+    TestAnalog();
     //printf("Testing\n");
   }
 }

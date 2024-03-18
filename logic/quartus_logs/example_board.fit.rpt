@@ -1,5 +1,5 @@
 Fitter report for example_board
-Fri Mar 08 15:54:30 2024
+Mon Mar 18 14:45:23 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -72,7 +72,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                        ;
 +------------------------------------+--------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Mar 08 15:54:30 2024            ;
+; Fitter Status                      ; Successful - Mon Mar 18 14:45:23 2024            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; example_board                                    ;
 ; Top-level Entity Name              ; top                                              ;
@@ -160,12 +160,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.71        ;
+; Average used               ; 1.94        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  23.5%      ;
+;     Processors 2-4         ;  31.4%      ;
 +----------------------------+-------------+
 
 
@@ -2382,12 +2382,12 @@ Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X59_Y0 to location X70_Y11
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:07
-Info (11888): Total time spent on timing analysis during the Fitter is 2.13 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 2.08 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (169177): 11 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin PIN_37 uses I/O standard 3.3-V LVTTL at E5
     Info (169178): Pin PIN_38 uses I/O standard 3.3-V LVTTL at AG25
@@ -2402,9 +2402,9 @@ Warning (169177): 11 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-
     Info (169178): Pin PIN_HSE uses I/O standard 3.3-V LVTTL at B15
 Info (144001): Generated suppressed messages file F:/SY/paulse/logic/quartus_logs/example_board.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 5452 megabytes
-    Info: Processing ended: Fri Mar 08 15:54:31 2024
-    Info: Elapsed time: 00:00:35
+    Info: Peak virtual memory: 5456 megabytes
+    Info: Processing ended: Mon Mar 18 14:45:24 2024
+    Info: Elapsed time: 00:00:37
     Info: Total CPU time (on all processors): 00:00:41
 
 

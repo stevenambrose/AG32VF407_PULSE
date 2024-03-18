@@ -36,84 +36,6 @@ module pulse_ip (
   input       [3:0]  ext_dma_DMACTC,
   output tri0 [3:0]  local_int
 );
-//assign mem_ahb_hreadyout = 1'b1;
-//assign slave_ahb_hready  = 1'b1;
-
-
-reg signed [31:0] plus_cnt;
-
-reg plus_a_reg0;
-reg plus_a_reg1;
-wire plus_a_rise;
-wire plus_a_fall;
-
-reg plus_b_reg0;
-reg plus_b_reg1;
-wire plus_b_rise;
-wire plus_b_fall;
-
-assign plus_a_rise = (~plus_a_reg1)&plus_a_reg0;
-assign plus_a_fall = plus_a_reg1&(~plus_a_reg0);
-
-assign plus_b_rise = (~plus_b_reg1)&plus_b_reg0;
-assign plus_b_fall = plus_b_reg1&(~plus_b_reg0);
-
-
-always @ (posedge sys_clock or negedge cpld_rst_out_data) begin //典型采脉冲电路
-	if(!cpld_rst_out_data) begin
-		plus_a_reg0 <= PLUS_A;
-		plus_a_reg1 <= PLUS_A;
-		plus_b_reg0 <= PLUS_B;
-		plus_b_reg1 <= PLUS_B;
-	end
-	else begin
-		plus_a_reg0 <= PLUS_A;
-		plus_a_reg1 <= plus_a_reg0;
-		plus_b_reg0 <= PLUS_B;
-		plus_b_reg1 <= plus_b_reg0;
-	end
-
-end
-
-always @ (posedge sys_clock or negedge cpld_rst_out_data) begin
-	if(!cpld_rst_out_data) begin
-		plus_cnt <= 32'd0;
-	end
-	
-	else if(plus_a_rise||plus_a_fall) begin	//上升
-		if (plus_a_rise) begin
-			if(!PLUS_B)
-				plus_cnt <= plus_cnt + 1'b1;
-			else 
-				plus_cnt <= plus_cnt - 1'b1;
-		end
-		else if (plus_a_fall) begin
-			if (PLUS_B) 
-				plus_cnt <= plus_cnt + 1'b1;
-			else 
-				plus_cnt <= plus_cnt - 1'b1;
-		end
-	end
-	
-	else if(plus_b_rise||plus_b_fall) begin	//下降
-		if(plus_b_rise) begin
-			if(PLUS_A) 
-				plus_cnt <= plus_cnt + 1'b1;
-			else 
-				plus_cnt <= plus_cnt - 1'b1;		
-		end
-		else if (plus_b_fall) begin
-			if (!PLUS_A) 
-				plus_cnt <= plus_cnt + 1'b1;
-			else 
-				plus_cnt <= plus_cnt - 1'b1;
-		end
-	end
-
-end
-
-
-
 
 
 /*****************************************************************************/
@@ -221,7 +143,6 @@ generate
         .apb_pwrite (per_pwrite[i] ),
         .apb_paddr  (per_paddr[i]  ),
         .apb_pwdata (per_pwdata[i] ),
-		  .plus_cnt	  (plus_cnt		  ),
         .apb_prdata (per_prdata[i] )
       );
     end
@@ -245,9 +166,121 @@ always @ (*) begin
   end
 end
 
+//pulse_cnt pulse_cnt_inst(
+//	.cpld_rst_out_data			(cpld_rst_out_data),
+//	.apb_clock						(apb_clock			),			
+//	.sys_clock						(sys_clock			),			
+//	.PLUS_A							(PLUS_A				),		
+//	.PLUS_B							(PLUS_B				),	
+//	.apb_penable					(apb_penable[i]	),		
+//	.apb_pwrite						(apb_pwrite[i] 	),	
+//	.apb_paddr						(apb_paddr[i]		),		
+//	.apb_prdata						(apb_prdata[i]		)	
+//);
 
 endmodule
 
+module pulse_cnt(
+	input 			cpld_rst_out_data,
+	input         	apb_clock,
+	input 			sys_clock,
+	input				PLUS_A,
+	input				PLUS_B,
+	input         	apb_penable,
+	input         	apb_pwrite,
+	input  [11:0] 	apb_paddr,
+	output [31:0] 	apb_prdata
+);
+
+reg signed [31:0] plus_cnt;
+
+reg plus_a_reg0;
+reg plus_a_reg1;
+wire plus_a_rise;
+wire plus_a_fall;
+
+reg plus_b_reg0;
+reg plus_b_reg1;
+wire plus_b_rise;
+wire plus_b_fall;
+
+assign plus_a_rise = (~plus_a_reg1)&plus_a_reg0;
+assign plus_a_fall = plus_a_reg1&(~plus_a_reg0);
+
+assign plus_b_rise = (~plus_b_reg1)&plus_b_reg0;
+assign plus_b_fall = plus_b_reg1&(~plus_b_reg0);
+
+
+always @ (posedge sys_clock or negedge cpld_rst_out_data) begin //典型采脉冲电路
+	if(!cpld_rst_out_data) begin
+		plus_a_reg0 <= PLUS_A;
+		plus_a_reg1 <= PLUS_A;
+		plus_b_reg0 <= PLUS_B;
+		plus_b_reg1 <= PLUS_B;
+	end
+	else begin
+		plus_a_reg0 <= PLUS_A;
+		plus_a_reg1 <= plus_a_reg0;
+		plus_b_reg0 <= PLUS_B;
+		plus_b_reg1 <= plus_b_reg0;
+	end
+
+end
+
+always @ (posedge sys_clock or negedge cpld_rst_out_data) begin
+	if(!cpld_rst_out_data) begin
+		plus_cnt <= 32'd0;
+	end
+	
+	else if(plus_a_rise||plus_a_fall) begin	//上升
+		if (plus_a_rise) begin
+			if(!PLUS_B)
+				plus_cnt <= plus_cnt + 1'b1;
+			else 
+				plus_cnt <= plus_cnt - 1'b1;
+		end
+		else if (plus_a_fall) begin
+			if (PLUS_B) 
+				plus_cnt <= plus_cnt + 1'b1;
+			else 
+				plus_cnt <= plus_cnt - 1'b1;
+		end
+	end
+	
+	else if(plus_b_rise||plus_b_fall) begin	//下降
+		if(plus_b_rise) begin
+			if(PLUS_A) 
+				plus_cnt <= plus_cnt + 1'b1;
+			else 
+				plus_cnt <= plus_cnt - 1'b1;		
+		end
+		else if (plus_b_fall) begin
+			if (!PLUS_A) 
+				plus_cnt <= plus_cnt + 1'b1;
+			else 
+				plus_cnt <= plus_cnt - 1'b1;
+		end
+	end
+
+end
+
+//mcu的读操作响应
+//mcu端用C语言：int value = *((int *)0x60003000);
+reg [31:0] prdata;
+				
+parameter ADDR_READ = 'h3000;				
+always @(posedge apb_clock) begin  		//clk上升沿触发
+	if (!apb_pwrite 		&&  				//NONSEQ状态，第一次传输
+		apb_penable 		&&        		//读 （0 读，1 写）
+		apb_paddr[11:0] == ADDR_READ) 	//读地址为0x60003000（cpld内部用相对偏移）。
+	begin
+		prdata <= plus_cnt;				//把另一准备好的数据给到hrdata_reg
+	end
+end
+
+assign apb_prdata = prdata;
+
+endmodule
 
 module apb_adc (
   input         stop,
@@ -260,7 +293,6 @@ module apb_adc (
   input         apb_pwrite,
   input  [11:0] apb_paddr,
   input  [31:0] apb_pwdata,
-  input  [31:0] plus_cnt,
   output [31:0] apb_prdata
 );
 parameter SCLK_BIT = 16;
@@ -420,18 +452,6 @@ always @ (posedge apb_clock or negedge apb_resetn) begin
   end
 end
 
-//mcu的读操作响应
-//mcu端用C语言：int value = *((int *)0x60003000);
-//reg signed [31:0] ardata_reg;					
-parameter ADDR_READ = 'h3000;				
-always @(posedge apb_clock) begin  		//clk上升沿触发
-	if (!apb_pwrite 		&&  				//NONSEQ状态，第一次传输
-		apb_penable 		&&        		//读 （0 读，1 写）
-		apb_paddr[11:0] == ADDR_READ) 	//读地址为0x60000004（cpld内部用相对偏移）。
-	begin
-		prdata <= plus_cnt;				//把另一准备好的数据给到hrdata_reg
-	end
-end
 
 assign apb_prdata = prdata;
 

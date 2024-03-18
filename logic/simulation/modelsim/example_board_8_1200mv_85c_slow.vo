@@ -16,7 +16,7 @@
 // PROGRAM "Quartus II 64-Bit"
 // VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
 
-// DATE "03/08/2024 15:54:39"
+// DATE "03/18/2024 14:45:31"
 
 // 
 // Device: Altera EP4CE75F29C8 Package FBGA780
@@ -725,6 +725,13 @@ wire \PIN_10~output_o ;
 wire \PIN_62~output_o ;
 wire \PIN_8~output_o ;
 wire \PIN_9~output_o ;
+wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|seq_length ;
+wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt ;
+wire [11:0] \macro_inst|gen_per[0].gen_adc.adc_inst|apb_db ;
+wire [15:0] \macro_inst|gen_per[0].gen_adc.adc_inst|sclk_counter ;
+wire [31:0] \macro_inst|gen_per[0].gen_adc.adc_inst|prdata ;
+wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|adc_state ;
+wire [15:0] \macro_inst|gen_per[0].gen_adc.adc_inst|ctrl_sclk_div ;
 wire [1:0] sys_ctrl_clkSource;
 wire [31:0] slave_ahb_hwdata;
 wire [1:0] slave_ahb_htrans;
@@ -759,13 +766,6 @@ wire [0:0] \macro_inst|pr_select ;
 wire [31:0] \macro_inst|ahb2apb_inst|prdata ;
 wire [15:0] \macro_inst|ahb2apb_inst|paddr ;
 wire [15:0] \macro_inst|ahb2apb_inst|haddr ;
-wire [15:0] \macro_inst|gen_per[0].gen_adc.adc_inst|ctrl_sclk_div ;
-wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|seq_length ;
-wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt ;
-wire [3:0] \macro_inst|gen_per[0].gen_adc.adc_inst|adc_state ;
-wire [31:0] \macro_inst|gen_per[0].gen_adc.adc_inst|prdata ;
-wire [15:0] \macro_inst|gen_per[0].gen_adc.adc_inst|sclk_counter ;
-wire [11:0] \macro_inst|gen_per[0].gen_adc.adc_inst|apb_db ;
 
 
 hard_block auto_generated_inst(

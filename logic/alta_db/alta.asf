@@ -1,0 +1,19 @@
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_62~output false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_8~output false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_9~output false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_42~output false
+set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_10~output false
+set_instance_assignment -name CLKIN_FREQ -extension -to pll_inst|auto_generated|pll1 8
+set_instance_assignment -extension -name FIXED_COORD -to gclksw_inst|gclk_switch__alta_gclksw {22 4 0}
+set_instance_assignment -extension -name FIXED_COORD -to gclksw_inst|gclk_switch {22 4 5}
+set_location_assignment -to PIN_10 PIN_10
+set_location_assignment -to PIN_37 PIN_37
+set_location_assignment -to PIN_38 PIN_38
+set_location_assignment -to PIN_42 PIN_42
+set_location_assignment -to PIN_43 PIN_43
+set_location_assignment -to PIN_62 PIN_62
+set_location_assignment -to PIN_8 PIN_8
+set_location_assignment -to PIN_9 PIN_9
+set_location_assignment -to PIN_HSE PIN_HSE
+set_location_assignment -to PIN_HSI PIN_HSI
+set_location_assignment -to PIN_OSC PIN_OSC

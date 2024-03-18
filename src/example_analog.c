@@ -7,13 +7,10 @@ static uint32_t sclk_div = 9; // Divided by 20 = (9 + 1) * 2
 
 void TestAdc(ADC_TypeDef *adc)
 {
-  printf("\nTesting ADC%d:\n", adc == ADC0 ? 0 : adc == ADC1 ? 1 : 2);
-  for (int channel = ADC_CHANNEL0; channel <= ADC_CHANNEL15; ++channel) {
-    ADC_SetChannel(adc, channel);
+   ADC_SetChannel(adc, ADC_CHANNEL0);
     ADC_Start(adc, sclk_div);
     ADC_WaitForEoc(adc);
-    printf("  channel %d: 0x%03x\n", channel - ADC_CHANNEL0, ADC_GetData(adc));
-  }
+    printf("  channel %d: %d\n", ADC_CHANNEL0, ADC_GetData(adc));
 }
 /*
 void TestDac(DAC_TypeDef *dac)
