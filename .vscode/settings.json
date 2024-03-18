@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "example.h": "c",
+        "math.h": "c"
+    }
+}

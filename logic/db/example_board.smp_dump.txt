@@ -1,0 +1,6 @@
+
+State Machine - |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|apbState
+Name apbState.apbIdle apbState.apbAccess apbState.apbSetup 
+apbState.apbIdle 0 0 0 
+apbState.apbSetup 1 0 1 
+apbState.apbAccess 1 1 0 
