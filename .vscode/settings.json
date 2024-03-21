@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "example.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "freertos.h": "c",
+        "task.h": "c"
     }
 }

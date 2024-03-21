@@ -29,7 +29,7 @@ __attribute__((weak)) void (*button_isr_cb)(void);
 
 #define WAIT_UART { if (MSG_UART) while (UART_IsTxBusy(MSG_UART)); }
 
-void TestGpio(void);
+void TestGpio();
 void TestCan(void);
 void TestCrc(void);
 void TestFcb(void);
