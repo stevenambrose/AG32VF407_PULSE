@@ -126,7 +126,6 @@ set_global_assignment -name MAX_RAM_BLOCKS_M4K 4
 
 
 set_global_assignment -name EDA_MAINTAIN_DESIGN_HIERARCHY PARTITION_ONLY -section_id eda_simulation
-set_global_assignment -name SDC_FILE example_board.sdc
 set_global_assignment -name VERILOG_FILE ahb2apb.v
 set_global_assignment -name VERILOG_FILE example_board.v
 set_global_assignment -name VERILOG_FILE pulse_ip.v

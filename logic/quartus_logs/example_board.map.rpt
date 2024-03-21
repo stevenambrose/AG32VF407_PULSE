@@ -1,5 +1,5 @@
 Analysis & Synthesis report for example_board
-Mon Mar 18 14:44:38 2024
+Thu Mar 21 15:27:23 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -15,14 +15,14 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   7. Partition for Top-Level Resource Utilization by Entity
   8. State Machine - |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|apbState
   9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Source assignments for Top-level Entity: |top
- 13. Parameter Settings for User Entity Instance: altpll:pll_inst
- 14. Parameter Settings for User Entity Instance: alta_gclksw:gclksw_inst
- 15. Parameter Settings for User Entity Instance: pulse_ip:macro_inst
- 16. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|ahb2apb:ahb2apb_inst
- 17. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Source assignments for Top-level Entity: |top
+ 12. Parameter Settings for User Entity Instance: altpll:pll_inst
+ 13. Parameter Settings for User Entity Instance: alta_gclksw:gclksw_inst
+ 14. Parameter Settings for User Entity Instance: pulse_ip:macro_inst
+ 15. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|ahb2apb:ahb2apb_inst
+ 16. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst
+ 17. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst
  18. Partition Dependent Files
  19. Partition "macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst" Resource Utilization by Entity
  20. Parameter Settings for User Entity Instance: pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|alta_adc:adc_inst
@@ -61,7 +61,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Mar 18 14:44:38 2024            ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 21 15:27:22 2024            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; example_board                                    ;
 ; Top-level Entity Name              ; top                                              ;
@@ -176,12 +176,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.43        ;
+; Average used               ; 2.60        ;
 ; Maximum used               ; 3           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-3         ;  71.4%      ;
+;     Processors 2-3         ;  80.0%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -215,19 +215,20 @@ applicable agreement for further details.
 +-------------------------------------------------+-------------+----------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Partition for Top-Level Resource Utilization by Entity                                                                                                                                                                                ;
-+---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Library Name ;
-+---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
-; |top                                        ; 476 (265)         ; 195 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top                                                         ; work         ;
-;    |alta_gclksw:gclksw_inst|                ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|alta_gclksw:gclksw_inst                                 ; work         ;
-;    |altpll:pll_inst|                        ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|altpll:pll_inst                                         ; work         ;
-;       |altpll_fs02:auto_generated|          ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|altpll:pll_inst|altpll_fs02:auto_generated              ; work         ;
-;    |pulse_ip:macro_inst|                    ; 211 (31)          ; 194 (1)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst                                     ; work         ;
-;       |ahb2apb:ahb2apb_inst|                ; 10 (10)           ; 67 (67)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst                ; work         ;
-;       |apb_adc:gen_per[0].gen_adc.adc_inst| ; 170 (170)         ; 126 (126)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst ; work         ;
-+---------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition for Top-Level Resource Utilization by Entity                                                                                                                                                                                                            ;
++-----------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Library Name ;
++-----------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
+; |top                                                      ; 526 (264)         ; 268 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top                                                                       ; work         ;
+;    |alta_gclksw:gclksw_inst|                              ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|alta_gclksw:gclksw_inst                                               ; work         ;
+;    |altpll:pll_inst|                                      ; 0 (0)             ; 1 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|altpll:pll_inst                                                       ; work         ;
+;       |altpll_fs02:auto_generated|                        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|altpll:pll_inst|altpll_fs02:auto_generated                            ; work         ;
+;    |pulse_ip:macro_inst|                                  ; 262 (34)          ; 267 (2)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst                                                   ; work         ;
+;       |ahb2apb:ahb2apb_inst|                              ; 10 (10)           ; 70 (70)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst                              ; work         ;
+;       |apb_adc:gen_per[0].gen_adc.adc_inst|               ; 169 (169)         ; 126 (126)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst               ; work         ;
+;       |pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst| ; 49 (49)           ; 69 (69)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst ; work         ;
++-----------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -250,41 +251,27 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 ; pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|prdata[13..15] ; Stuck at GND due to stuck port data_in                        ;
 ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|hresp                         ; Stuck at GND due to stuck port data_in                        ;
-; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|prdata[13..15]                ; Stuck at GND due to stuck port data_in                        ;
 ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|paddr[1]                      ; Merged with pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|paddr[0] ;
 ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|paddr[0]                      ; Stuck at GND due to stuck port data_in                        ;
 ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|apbState.apbAccess            ; Lost fanout                                                   ;
-; Total Number of Removed Registers = 10                                 ;                                                               ;
+; Total Number of Removed Registers = 7                                  ;                                                               ;
 +------------------------------------------------------------------------+---------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                          ;
-+--------------------------------------------------------------------+---------------------------+-----------------------------------------------------+
-; Register name                                                      ; Reason for Removal        ; Registers Removed due to This Register              ;
-+--------------------------------------------------------------------+---------------------------+-----------------------------------------------------+
-; pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|prdata[15] ; Stuck at GND              ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|prdata[15] ;
-;                                                                    ; due to stuck port data_in ;                                                     ;
-; pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|prdata[14] ; Stuck at GND              ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|prdata[14] ;
-;                                                                    ; due to stuck port data_in ;                                                     ;
-; pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|prdata[13] ; Stuck at GND              ; pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|prdata[13] ;
-;                                                                    ; due to stuck port data_in ;                                                     ;
-+--------------------------------------------------------------------+---------------------------+-----------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|paddr[13]                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|ctrl_adc_stop   ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|adc_state[2]    ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|seq_cnt[0]      ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|sclk_counter[1] ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|Mux0            ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|seq_read[3]     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |top|pulse_ip:macro_inst|ahb2apb:ahb2apb_inst|paddr[7]                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|ctrl_adc_start             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|adc_state[1]               ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|seq_cnt[2]                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|sclk_counter[6]            ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 0 LEs                ; 96 LEs                 ; Yes        ; |top|pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_cnt[18] ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|Mux0                       ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top|pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|seq_read[0]                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -956,8 +943,6 @@ Encoding Type:  One-Hot
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; local_int[0]          ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_data[5]  ;
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_data[5]  ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_data[4]  ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_data[4]  ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_data[3]  ;
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_data[3]  ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_data[2]  ;
@@ -966,8 +951,6 @@ Encoding Type:  One-Hot
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_data[1]  ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_en[5]    ;
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_en[5]    ;
-; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_en[4]    ;
-; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_en[4]    ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_en[3]    ;
 ; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; gpio4_io_out_en[3]    ;
 ; IGNORE_LCELL_BUFFERS         ; off   ; -    ; gpio4_io_out_en[2]    ;
@@ -1376,7 +1359,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ADDR_BITS      ; 16                               ; Signed Integer  ;
 ; DATA_BITS      ; 32                               ; Signed Integer  ;
 ; PER_BITS       ; 12                               ; Signed Integer  ;
-; PER_CNT        ; 1                                ; Signed Integer  ;
+; PER_CNT        ; 2                                ; Signed Integer  ;
 ; ADC0_ADDR      ; 00000000000000000000000000000000 ; Unsigned Binary ;
 +----------------+----------------------------------+-----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -1409,6 +1392,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst ;
++----------------+----------------------------------+----------------------------------------------------------------+
+; Parameter Name ; Value                            ; Type                                                           ;
++----------------+----------------------------------+----------------------------------------------------------------+
+; ADDR_READ      ; 00000000000000000001000000000000 ; Unsigned Binary                                                ;
++----------------+----------------------------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Partition Dependent Files                                                                                                                                 ;
 +-----------------------------------------------------------------------------------------+--------------------+---------+----------------------------------+
@@ -1422,8 +1415,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; libraries/megafunctions/stratixii_pll.inc                                               ; Quartus II Install ; work    ; 6797ab505ed700f1a221e4a213e106a6 ;
 ; ahb2apb.v                                                                               ; Project Directory  ; work    ; 586ee0810fbae800c4930f89266a7a82 ;
 ; db/altpll_fs02.tdf                                                                      ; Project Directory  ; work    ; bf56003c813176e68cd51aee7976e5ec ;
-; example_board.v                                                                         ; Project Directory  ; work    ; 5968b860091fcb36623360c1e2d5991d ;
-; pulse_ip.v                                                                              ; Project Directory  ; work    ; 35019a94f526a1638a8c6165fb540585 ;
+; example_board.v                                                                         ; Project Directory  ; work    ; 214ff12d9e7e2e793278d3c2d68f7a9d ;
+; pulse_ip.v                                                                              ; Project Directory  ; work    ; 6e85378db59f1de3ffedf7108bf11c03 ;
 +-----------------------------------------------------------------------------------------+--------------------+---------+----------------------------------+
 
 
@@ -1511,8 +1504,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; gpio3_io_out_data       ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio3_io_out_en         ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio4_io_out_data[7..6] ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
+; gpio4_io_out_data[4]    ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio4_io_out_data[0]    ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio4_io_out_en[7..6]   ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
+; gpio4_io_out_en[4]      ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio4_io_out_en[0]      ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio5_io_out_data       ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
 ; gpio5_io_out_en         ; Partition Output ; Warning  ; Connected to dangling logic. Logic connected to a dangling partition output or bidir will not be optimized away.                      ;
@@ -1568,9 +1563,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------------+--------------+
 ; Partition Name                                  ; Elapsed Time ;
 +-------------------------------------------------+--------------+
-; Top                                             ; 00:00:05     ;
-; rv32                                            ; 00:00:04     ;
-; macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst ; 00:00:04     ;
+; Top                                             ; 00:00:03     ;
+; rv32                                            ; 00:00:03     ;
+; macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst ; 00:00:03     ;
 +-------------------------------------------------+--------------+
 
 
@@ -1580,7 +1575,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 18 14:44:31 2024
+    Info: Processing started: Thu Mar 21 15:27:17 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off example_board -c example_board
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file ahb2apb.v
@@ -1650,18 +1645,17 @@ Info (12021): Found 56 design units, including 56 entities, in source file c:/us
     Info (12023): Found entity 56: alta_ram9k
 Warning (10236): Verilog HDL Implicit Net warning at example_board.v(29): created implicit net for "PIN_10_in"
 Warning (10236): Verilog HDL Implicit Net warning at example_board.v(40): created implicit net for "PIN_43_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(43): created implicit net for "PIN_62_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(49): created implicit net for "PIN_8_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(55): created implicit net for "PIN_9_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(61): created implicit net for "PIN_HSE_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(64): created implicit net for "PIN_HSI_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(67): created implicit net for "PIN_OSC_in"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(183): created implicit net for "bus_clk"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(194): created implicit net for "sys_clk"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(244): created implicit net for "cpld_rst_out_data"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(245): created implicit net for "cpld_rst_out_en"
-Warning (10236): Verilog HDL Implicit Net warning at example_board.v(341): created implicit net for "usb0_xcvr_clk"
-Warning (10236): Verilog HDL Implicit Net warning at pulse_ip.v(77): created implicit net for "apb_clock"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(43): created implicit net for "PIN_8_in"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(49): created implicit net for "PIN_9_in"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(55): created implicit net for "PIN_HSE_in"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(58): created implicit net for "PIN_HSI_in"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(61): created implicit net for "PIN_OSC_in"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(177): created implicit net for "bus_clk"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(188): created implicit net for "sys_clk"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(239): created implicit net for "cpld_rst_out_data"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(240): created implicit net for "cpld_rst_out_en"
+Warning (10236): Verilog HDL Implicit Net warning at example_board.v(334): created implicit net for "usb0_xcvr_clk"
+Warning (10236): Verilog HDL Implicit Net warning at pulse_ip.v(78): created implicit net for "apb_clock"
 Warning (10236): Verilog HDL Implicit Net warning at alta_sim.v(168): created implicit net for "ena_reg"
 Warning (10236): Verilog HDL Implicit Net warning at alta_sim.v(192): created implicit net for "ena_int"
 Warning (10236): Verilog HDL Implicit Net warning at alta_sim.v(193): created implicit net for "ena_reg"
@@ -1672,7 +1666,7 @@ Warning (10236): Verilog HDL Implicit Net warning at alta_sim.v(474): created im
 Warning (10236): Verilog HDL Implicit Net warning at alta_sim.v(2746): created implicit net for "dffOut"
 Warning (10222): Verilog HDL Parameter Declaration warning at alta_sim.v(2416): Parameter Declaration in module "alta_bram_pulse_generator" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at example_board.v(67): object "PIN_OSC_in" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at example_board.v(61): object "PIN_OSC_in" assigned a value but never read
 Info (12128): Elaborating entity "altpll" for hierarchy "altpll:pll_inst"
 Info (12130): Elaborated megafunction instantiation "altpll:pll_inst"
 Info (12133): Instantiated megafunction "altpll:pll_inst" with the following parameter:
@@ -1712,16 +1706,17 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
 Info (12128): Elaborating entity "altpll_fs02" for hierarchy "altpll:pll_inst|altpll_fs02:auto_generated"
 Info (12128): Elaborating entity "alta_gclksw" for hierarchy "alta_gclksw:gclksw_inst"
 Info (12128): Elaborating entity "pulse_ip" for hierarchy "pulse_ip:macro_inst"
-Warning (10230): Verilog HDL assignment warning at pulse_ip.v(107): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at pulse_ip.v(124): truncated value with size 5 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at pulse_ip.v(108): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at pulse_ip.v(126): truncated value with size 5 to match size of target (2)
 Info (12128): Elaborating entity "ahb2apb" for hierarchy "pulse_ip:macro_inst|ahb2apb:ahb2apb_inst"
 Warning (10764): Verilog HDL warning at ahb2apb.v(52): converting signed shift amount to unsigned
 Warning (10230): Verilog HDL assignment warning at ahb2apb.v(52): truncated value with size 32 to match size of target (4)
 Info (12128): Elaborating entity "apb_adc" for hierarchy "pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst"
-Warning (10230): Verilog HDL assignment warning at pulse_ip.v(436): truncated value with size 32 to match size of target (4)
-Warning (10230): Verilog HDL assignment warning at pulse_ip.v(477): truncated value with size 32 to match size of target (16)
-Warning (10230): Verilog HDL assignment warning at pulse_ip.v(490): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at pulse_ip.v(454): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at pulse_ip.v(500): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at pulse_ip.v(513): truncated value with size 32 to match size of target (4)
 Info (12128): Elaborating entity "alta_adc" for hierarchy "pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|alta_adc:adc_inst"
+Info (12128): Elaborating entity "pulse_cnt" for hierarchy "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst"
 Info (12128): Elaborating entity "alta_rv32" for hierarchy "alta_rv32:rv32"
 Warning (10034): Output port "gpio0_io_out_data" at alta_sim.v(3712) has no driver
 Warning (10034): Output port "gpio0_io_out_en" at alta_sim.v(3713) has no driver
@@ -1758,7 +1753,7 @@ Info (281037): Using 4 processors to synthesize 3 partitions in parallel
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 18 14:44:33 2024
+    Info: Processing started: Thu Mar 21 15:27:19 2024
 Info: Command: quartus_map --parallel=1 --helper=0 --partition=Top example_board -c example_board
 Info (270000): Limiting DSP block usage to 0 DSP block(s) for the partition Top
 Info (270017): Limiting M4K/M9K RAM block usage to 4 M4K/M9K RAM block(s) for the Top
@@ -1767,6 +1762,11 @@ Info (281020): Starting Logic Optimization and Technology Mapping for Top Partit
 Info (17026): Resynthesizing 0 WYSIWYG logic cells and I/Os using "balanced" technology mapper which leaves 0 WYSIWYG logic cells and I/Os untouched
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg0" is converted into an equivalent circuit using register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg0~_emulated" and latch "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg0~1"
+    Warning (13310): Register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg1" is converted into an equivalent circuit using register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg1~_emulated" and latch "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg0~1"
+    Warning (13310): Register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg0" is converted into an equivalent circuit using register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg0~_emulated" and latch "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg0~1"
+    Warning (13310): Register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg1" is converted into an equivalent circuit using register "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg1~_emulated" and latch "pulse_ip:macro_inst|pulse_cnt:gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg0~1"
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (17016): Found the following redundant logic cells in design
@@ -1774,7 +1774,6 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "gpio4_io_in[1]"
     Info (17048): Logic cell "gpio4_io_in[2]"
     Info (17048): Logic cell "gpio4_io_in[3]"
-    Info (17048): Logic cell "gpio4_io_in[4]"
     Info (17048): Logic cell "gpio6_io_in[1]"
     Info (17048): Logic cell "mem_ahb_hrdata[0]"
     Info (17048): Logic cell "mem_ahb_hrdata[1]"
@@ -1789,6 +1788,9 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "mem_ahb_hrdata[10]"
     Info (17048): Logic cell "mem_ahb_hrdata[11]"
     Info (17048): Logic cell "mem_ahb_hrdata[12]"
+    Info (17048): Logic cell "mem_ahb_hrdata[13]"
+    Info (17048): Logic cell "mem_ahb_hrdata[14]"
+    Info (17048): Logic cell "mem_ahb_hrdata[15]"
     Info (17048): Logic cell "mem_ahb_hrdata[16]"
     Info (17048): Logic cell "mem_ahb_hrdata[17]"
     Info (17048): Logic cell "mem_ahb_hrdata[18]"
@@ -1820,8 +1822,6 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "mem_ahb_hwdata[4]"
     Info (17048): Logic cell "gpio4_io_out_data[1]"
     Info (17048): Logic cell "gpio4_io_out_en[1]"
-    Info (17048): Logic cell "gpio4_io_out_data[4]"
-    Info (17048): Logic cell "gpio4_io_out_en[4]"
     Info (17048): Logic cell "gpio4_io_out_data[3]"
     Info (17048): Logic cell "gpio4_io_out_en[3]"
     Info (17048): Logic cell "gpio4_io_out_data[2]"
@@ -1836,29 +1836,30 @@ Info (17016): Found the following redundant logic cells in design
     Info (17048): Logic cell "mem_ahb_hwdata[21]"
     Info (17048): Logic cell "mem_ahb_hwdata[22]"
     Info (17048): Logic cell "mem_ahb_hwdata[23]"
+    Info (17048): Logic cell "mem_ahb_hwdata[24]"
+    Info (17048): Logic cell "mem_ahb_hwdata[25]"
     Info (17048): Logic cell "mem_ahb_hwdata[26]"
     Info (17048): Logic cell "mem_ahb_hwdata[27]"
-    Info (17048): Logic cell "mem_ahb_hwdata[25]"
-    Info (17048): Logic cell "mem_ahb_hwdata[24]"
     Info (17048): Logic cell "mem_ahb_hwdata[28]"
     Info (17048): Logic cell "mem_ahb_hwdata[29]"
     Info (17048): Logic cell "mem_ahb_hwdata[30]"
     Info (17048): Logic cell "mem_ahb_hwdata[31]"
-    Info (17048): Logic cell "mem_ahb_haddr[4]"
-    Info (17048): Logic cell "mem_ahb_hwrite"
-    Info (17048): Logic cell "mem_ahb_haddr[15]"
-    Info (17048): Logic cell "mem_ahb_haddr[14]"
-    Info (17048): Logic cell "mem_ahb_haddr[13]"
-    Info (17048): Logic cell "mem_ahb_haddr[12]"
-    Info (17048): Logic cell "mem_ahb_haddr[6]"
     Info (17048): Logic cell "mem_ahb_haddr[11]"
     Info (17048): Logic cell "mem_ahb_haddr[10]"
     Info (17048): Logic cell "mem_ahb_haddr[9]"
     Info (17048): Logic cell "mem_ahb_haddr[8]"
     Info (17048): Logic cell "mem_ahb_haddr[5]"
+    Info (17048): Logic cell "mem_ahb_haddr[4]"
+    Info (17048): Logic cell "mem_ahb_haddr[6]"
     Info (17048): Logic cell "mem_ahb_haddr[7]"
-    Info (17048): Logic cell "mem_ahb_haddr[2]"
     Info (17048): Logic cell "mem_ahb_haddr[3]"
+    Info (17048): Logic cell "mem_ahb_haddr[2]"
+    Info (17048): Logic cell "mem_ahb_haddr[12]"
+    Info (17048): Logic cell "mem_ahb_haddr[15]"
+    Info (17048): Logic cell "mem_ahb_haddr[14]"
+    Info (17048): Logic cell "mem_ahb_haddr[13]"
+    Info (17048): Logic cell "mem_ahb_hwrite"
+    Info (17048): Logic cell "gpio4_io_out_data[5]"
 Warning (15899): PLL "altpll:pll_inst|altpll_fs02:auto_generated|pll1" has parameters clk1_multiply_by and clk1_divide_by specified but port CLK[1] is not connected
 Info (128000): Starting physical synthesis optimizations for speed
 Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
@@ -1871,22 +1872,22 @@ Info (332111): Found 3 clocks
 Info (128002): Starting physical synthesis algorithm combinational resynthesis using boolean division
 Info (128003): Physical synthesis algorithm combinational resynthesis using boolean division complete: estimated slack improvement of 0 ps
 Info (128001): Physical synthesis optimizations for speed complete: elapsed time is 00:00:01
-Info (21057): Implemented 556 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 640 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 541 logic cells
+    Info (21059): Implemented 2 output pins
+    Info (21060): Implemented 3 bidirectional pins
+    Info (21061): Implemented 625 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21071): Implemented 2 partitions
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 4670 megabytes
-    Info: Processing ended: Mon Mar 18 14:44:37 2024
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Processing ended: Thu Mar 21 15:27:22 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:07
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 18 14:44:33 2024
+    Info: Processing started: Thu Mar 21 15:27:19 2024
 Info: Command: quartus_map --parallel=1 --helper=1 --partition=macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst example_board -c example_board
 Info (270000): Limiting DSP block usage to 0 DSP block(s) for the partition pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|alta_adc:adc_inst
 Info (270017): Limiting M4K/M9K RAM block usage to 4 M4K/M9K RAM block(s) for the pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|alta_adc:adc_inst
@@ -1909,13 +1910,13 @@ Info (21057): Implemented 21 device resources after synthesis - the final resour
     Info (21059): Implemented 13 output pins
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4670 megabytes
-    Info: Processing ended: Mon Mar 18 14:44:36 2024
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Processing ended: Thu Mar 21 15:27:21 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:05
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 18 14:44:33 2024
+    Info: Processing started: Thu Mar 21 15:27:19 2024
 Info: Command: quartus_map --parallel=1 --helper=2 --partition=rv32 example_board -c example_board
 Info (270000): Limiting DSP block usage to 0 DSP block(s) for the partition alta_rv32:rv32
 Info (270017): Limiting M4K/M9K RAM block usage to 4 M4K/M9K RAM block(s) for the alta_rv32:rv32
@@ -2110,16 +2111,16 @@ Info (21057): Implemented 520 device resources after synthesis - the final resou
     Info (21061): Implemented 1 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 171 warnings
     Info: Peak virtual memory: 4670 megabytes
-    Info: Processing ended: Mon Mar 18 14:44:36 2024
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Processing ended: Thu Mar 21 15:27:21 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:06
 Info (281038): Finished parallel synthesis of all partitions
 Info (144001): Generated suppressed messages file F:/SY/paulse/logic/quartus_logs/example_board.map.smsg
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 229 warnings
-    Info: Peak virtual memory: 4611 megabytes
-    Info: Processing ended: Mon Mar 18 14:44:38 2024
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:10
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 233 warnings
+    Info: Peak virtual memory: 4610 megabytes
+    Info: Processing ended: Thu Mar 21 15:27:23 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+

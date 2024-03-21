@@ -1,4 +1,5 @@
 module pulse_ip (
+  output tri0        TEST_LED,
   input              PLUS_A,
   input              PLUS_B,
   input              cpld_rst_out_data,
@@ -60,7 +61,7 @@ parameter ADDR_BITS = 16;
 parameter DATA_BITS = 32;
 
 parameter PER_BITS = 12;
-parameter PER_CNT  = 1;
+parameter PER_CNT  = 2;
 parameter ADC0_ADDR = 'h0000;
 
 wire                 apb_psel;
@@ -112,6 +113,7 @@ wire                 per_pwrite[PER_CNT];
 wire [PER_BITS-1:0]  per_paddr[PER_CNT];
 wire [DATA_BITS-1:0] per_pwdata[PER_CNT];
 wire [DATA_BITS-1:0] per_prdata[PER_CNT];
+//wire [DATA_BITS-1:0] per_prdata0;
 
 wire [PER_CNT-1:0] dma_req;
 wire [PER_CNT-1:0] dma_clr;
@@ -131,7 +133,7 @@ generate
     assign per_pwrite[i]  = apb_pwrite;
     assign per_paddr[i]   = apb_paddr[PER_BITS-1:0];
     assign per_pwdata[i]  = apb_pwdata;
-    if (i < 3) begin : gen_adc
+    if (i < 1) begin : gen_adc
       apb_adc adc_inst(
         .stop       (stop          ),
         .dma_req    (dma_req[i]    ),
@@ -145,9 +147,27 @@ generate
         .apb_pwdata (per_pwdata[i] ),
         .apb_prdata (per_prdata[i] )
       );
+		
     end
+	 else begin: gen_pulse_cnt
+		pulse_cnt pulse_cnt_inst(
+	.TEST_LED						(TEST_LED),
+	.cpld_rst_out_data			(cpld_rst_out_data),
+	.cpld_rst_out_en				(cpld_rst_out_en	),
+	.apb_clock						(bus_clock			),			
+	.sys_clock						(sys_clock			),			
+	.PLUS_A							(PLUS_A				),		
+	.PLUS_B							(PLUS_B				),	
+	.apb_penable					(apb_penable		),		
+	.apb_pwrite						(apb_pwrite 		),	
+	.apb_paddr						(apb_paddr[15:0]	),		
+	.apb_prdata						(per_prdata[i]		)	
+	);
+	
+ end
   end
 endgenerate
+
 
 reg [PER_CNT-1:0] pr_select; // These extra registers provide better timing to apb_prdata (ahb_hrdata)
 always @ (posedge apb_clock or negedge resetn) begin
@@ -163,32 +183,23 @@ always @ (*) begin
   apb_prdata = 0;
   for (j = 0; j < PER_CNT; j = j + 1) begin
     apb_prdata = apb_prdata | (pr_select[j] ? per_prdata[j] : 0);
+	 //apb_prdata = apb_prdata | per_prdata[j];
   end
 end
-
-//pulse_cnt pulse_cnt_inst(
-//	.cpld_rst_out_data			(cpld_rst_out_data),
-//	.apb_clock						(apb_clock			),			
-//	.sys_clock						(sys_clock			),			
-//	.PLUS_A							(PLUS_A				),		
-//	.PLUS_B							(PLUS_B				),	
-//	.apb_penable					(apb_penable[i]	),		
-//	.apb_pwrite						(apb_pwrite[i] 	),	
-//	.apb_paddr						(apb_paddr[i]		),		
-//	.apb_prdata						(apb_prdata[i]		)	
-//);
 
 endmodule
 
 module pulse_cnt(
+	output tri0    TEST_LED,
 	input 			cpld_rst_out_data,
+	input          cpld_rst_out_en,
 	input         	apb_clock,
 	input 			sys_clock,
 	input				PLUS_A,
 	input				PLUS_B,
 	input         	apb_penable,
 	input         	apb_pwrite,
-	input  [11:0] 	apb_paddr,
+	input  [15:0] 	apb_paddr,
 	output [31:0] 	apb_prdata
 );
 
@@ -210,6 +221,10 @@ assign plus_a_fall = plus_a_reg1&(~plus_a_reg0);
 assign plus_b_rise = (~plus_b_reg1)&plus_b_reg0;
 assign plus_b_fall = plus_b_reg1&(~plus_b_reg0);
 
+//定义开发板上的一个led灯，用来debug程序。
+reg TestLedCtrl = 1;
+assign TEST_LED   = TestLedCtrl;
+
 
 always @ (posedge sys_clock or negedge cpld_rst_out_data) begin //典型采脉冲电路
 	if(!cpld_rst_out_data) begin
@@ -219,6 +234,7 @@ always @ (posedge sys_clock or negedge cpld_rst_out_data) begin //典型采脉�
 		plus_b_reg1 <= PLUS_B;
 	end
 	else begin
+	
 		plus_a_reg0 <= PLUS_A;
 		plus_a_reg1 <= plus_a_reg0;
 		plus_b_reg0 <= PLUS_B;
@@ -266,14 +282,16 @@ end
 
 //mcu的读操作响应
 //mcu端用C语言：int value = *((int *)0x60003000);
+
 reg [31:0] prdata;
 				
-parameter ADDR_READ = 'h3000;				
+parameter ADDR_READ = 'h1000;				
 always @(posedge apb_clock) begin  		//clk上升沿触发
 	if (!apb_pwrite 		&&  				//NONSEQ状态，第一次传输
 		apb_penable 		&&        		//读 （0 读，1 写）
-		apb_paddr[11:0] == ADDR_READ) 	//读地址为0x60003000（cpld内部用相对偏移）。
+		apb_paddr[15:0] == ADDR_READ) 	//读地址为0x60003000（cpld内部用相对偏移）。
 	begin
+		TestLedCtrl <= !TestLedCtrl;	//led灯切换，表示有写操作触发
 		prdata <= plus_cnt;				//把另一准备好的数据给到hrdata_reg
 	end
 end
@@ -283,6 +301,7 @@ assign apb_prdata = prdata;
 endmodule
 
 module apb_adc (
+//	output tri0    TEST_LED,
   input         stop,
   output        dma_req,
   input         dma_clr,
@@ -444,10 +463,15 @@ wire [31:0] data_read = apb_paddr == ADDR_DATA ? apb_db        : 0;
 wire [31:0] seq_read  = is_seq_addr ? seq_reg[seq_idx] : 0;
 
 reg [31:0] prdata;
+
+//reg TestLedCtrl = 1;
+//assign TEST_LED   = TestLedCtrl;
+
 always @ (posedge apb_clock or negedge apb_resetn) begin
   if (!apb_resetn) begin
     prdata <= 32'h0;
   end else if (apb_psel && !apb_penable && !apb_pwrite) begin
+//	TestLedCtrl	<= !TestLedCtrl;
     prdata <= ctrl_read | stat_read | chnl_read | data_read | seq_read;
   end
 end

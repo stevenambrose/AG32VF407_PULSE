@@ -1,5 +1,5 @@
 Partition Merge report for example_board
-Mon Mar 18 14:44:40 2024
+Thu Mar 21 15:27:24 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -39,15 +39,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Partition Merge Summary                                                               ;
 +------------------------------------+--------------------------------------------------+
-; Partition Merge Status             ; Successful - Mon Mar 18 14:44:40 2024            ;
+; Partition Merge Status             ; Successful - Thu Mar 21 15:27:24 2024            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; example_board                                    ;
 ; Top-level Entity Name              ; top                                              ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 535                                              ;
-;     Total combinational functions  ; 477                                              ;
-;     Dedicated logic registers      ; 195                                              ;
-; Total registers                    ; 195                                              ;
+; Total logic elements               ; 616                                              ;
+;     Total combinational functions  ; 526                                              ;
+;     Dedicated logic registers      ; 268                                              ;
+; Total registers                    ; 268                                              ;
 ; Total pins                         ; 11                                               ;
 ; Total virtual pins                 ; 1                                                ;
 ; Total memory bits                  ; 0                                                ;
@@ -73,15 +73,6 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+-------------------------------------------------+------------------------+
 ; Port                                                                               ; Partition                                       ; Info                   ;
 +------------------------------------------------------------------------------------+-------------------------------------------------+------------------------+
-; alta_rv32:rv32|mem_ahb_hrdata[13]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_hwdata[13]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_haddr[13]                                                   ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_hrdata[14]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_hwdata[14]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_haddr[14]                                                   ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_hrdata[15]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_hwdata[15]                                                  ; rv32                                            ; Driven by constant GND ;
-; alta_rv32:rv32|mem_ahb_haddr[15]                                                   ; rv32                                            ; Driven by constant GND ;
 ; alta_rv32:rv32|ext_resetn                                                          ; rv32                                            ; Driven by constant VCC ;
 ; alta_rv32:rv32|resetn_out                                                          ; rv32                                            ; Driven by constant VCC ;
 ; alta_rv32:rv32|usb0_id                                                             ; rv32                                            ; Driven by constant VCC ;
@@ -485,10 +476,11 @@ applicable agreement for further details.
 ; alta_rv32:rv32|gpio4_io_in[6]                                                      ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_in[7]                                                      ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_data[0]                                                ; rv32                                            ; No fanout              ;
-; alta_rv32:rv32|gpio4_io_out_data[5]                                                ; rv32                                            ; No fanout              ;
+; alta_rv32:rv32|gpio4_io_out_data[4]                                                ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_data[6]                                                ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_data[7]                                                ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_en[0]                                                  ; rv32                                            ; No fanout              ;
+; alta_rv32:rv32|gpio4_io_out_en[4]                                                  ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_en[5]                                                  ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_en[6]                                                  ; rv32                                            ; No fanout              ;
 ; alta_rv32:rv32|gpio4_io_out_en[7]                                                  ; rv32                                            ; No fanout              ;
@@ -664,20 +656,20 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 +--------------------------------------------------------+------+-------------------------------------------------+------+--------------------------------+
 ; Statistic                                              ; Top  ; macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst ; rv32 ; hard_block:auto_generated_inst ;
 +--------------------------------------------------------+------+-------------------------------------------------+------+--------------------------------+
-; Estimated Total logic elements                         ; 534  ; 0                                               ; 1    ; 0                              ;
+; Estimated Total logic elements                         ; 615  ; 0                                               ; 1    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
-; Total combinational functions                          ; 476  ; 0                                               ; 1    ; 0                              ;
+; Total combinational functions                          ; 525  ; 0                                               ; 1    ; 0                              ;
 ; Logic element usage by number of LUT inputs            ;      ;                                                 ;      ;                                ;
-;     -- 4 input functions                               ; 122  ; 0                                               ; 0    ; 0                              ;
-;     -- 3 input functions                               ; 26   ; 0                                               ; 0    ; 0                              ;
-;     -- <=2 input functions                             ; 328  ; 0                                               ; 1    ; 0                              ;
+;     -- 4 input functions                               ; 153  ; 0                                               ; 0    ; 0                              ;
+;     -- 3 input functions                               ; 67   ; 0                                               ; 0    ; 0                              ;
+;     -- <=2 input functions                             ; 305  ; 0                                               ; 1    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Logic elements by mode                                 ;      ;                                                 ;      ;                                ;
-;     -- normal mode                                     ; 461  ; 0                                               ; 1    ; 0                              ;
-;     -- arithmetic mode                                 ; 15   ; 0                                               ; 0    ; 0                              ;
+;     -- normal mode                                     ; 479  ; 0                                               ; 1    ; 0                              ;
+;     -- arithmetic mode                                 ; 46   ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
-; Total registers                                        ; 195  ; 0                                               ; 0    ; 0                              ;
-;     -- Dedicated logic registers                       ; 195  ; 0                                               ; 0    ; 0                              ;
+; Total registers                                        ; 268  ; 0                                               ; 0    ; 0                              ;
+;     -- Dedicated logic registers                       ; 268  ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Virtual pins                                           ; 0    ; 0                                               ; 1    ; 0                              ;
 ; I/O pins                                               ; 11   ; 0                                               ; 0    ; 0                              ;
@@ -687,39 +679,39 @@ Note: The Incremental Compilation Advisor can be used to get more detailed recom
 ; PLL                                                    ; 0    ; 0                                               ; 0    ; 1                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Connections                                            ;      ;                                                 ;      ;                                ;
-;     -- Input Connections                               ; 268  ; 0                                               ; 1    ; 6                              ;
-;     -- Registered Input Connections                    ; 207  ; 0                                               ; 0    ; 0                              ;
-;     -- Output Connections                              ; 68   ; 0                                               ; 10   ; 197                            ;
+;     -- Input Connections                               ; 339  ; 0                                               ; 1    ; 6                              ;
+;     -- Registered Input Connections                    ; 280  ; 0                                               ; 0    ; 0                              ;
+;     -- Output Connections                              ; 67   ; 0                                               ; 9    ; 270                            ;
 ;     -- Registered Output Connections                   ; 3    ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Internal Connections                                   ;      ;                                                 ;      ;                                ;
-;     -- Total Connections                               ; 1586 ; 0                                               ; 11   ; 205                            ;
-;     -- Registered Connections                          ; 710  ; 0                                               ; 0    ; 0                              ;
+;     -- Total Connections                               ; 2043 ; 0                                               ; 10   ; 278                            ;
+;     -- Registered Connections                          ; 936  ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; External Connections                                   ;      ;                                                 ;      ;                                ;
-;     -- Top                                             ; 124  ; 0                                               ; 10   ; 202                            ;
+;     -- Top                                             ; 122  ; 0                                               ; 9    ; 275                            ;
 ;     -- macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst ; 0    ; 0                                               ; 0    ; 0                              ;
-;     -- rv32                                            ; 10   ; 0                                               ; 0    ; 1                              ;
-;     -- hard_block:auto_generated_inst                  ; 202  ; 0                                               ; 1    ; 0                              ;
+;     -- rv32                                            ; 9    ; 0                                               ; 0    ; 1                              ;
+;     -- hard_block:auto_generated_inst                  ; 275  ; 0                                               ; 1    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Partition Interface                                    ;      ;                                                 ;      ;                                ;
 ;     -- Input Ports                                     ; 6    ; 8                                               ; 224  ; 6                              ;
-;     -- Output Ports                                    ; 1    ; 13                                              ; 295  ; 2                              ;
-;     -- Bidir Ports                                     ; 4    ; 0                                               ; 0    ; 0                              ;
+;     -- Output Ports                                    ; 2    ; 13                                              ; 295  ; 2                              ;
+;     -- Bidir Ports                                     ; 3    ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Registered Ports                                       ;      ;                                                 ;      ;                                ;
 ;     -- Registered Input Ports                          ; 0    ; 0                                               ; 0    ; 0                              ;
 ;     -- Registered Output Ports                         ; 0    ; 0                                               ; 0    ; 0                              ;
 ;                                                        ;      ;                                                 ;      ;                                ;
 ; Port Connectivity                                      ;      ;                                                 ;      ;                                ;
-;     -- Input Ports driven by GND                       ; 0    ; 0                                               ; 183  ; 0                              ;
+;     -- Input Ports driven by GND                       ; 0    ; 0                                               ; 181  ; 0                              ;
 ;     -- Output Ports driven by GND                      ; 0    ; 0                                               ; 170  ; 0                              ;
 ;     -- Input Ports driven by VCC                       ; 0    ; 0                                               ; 3    ; 0                              ;
 ;     -- Output Ports driven by VCC                      ; 0    ; 0                                               ; 0    ; 0                              ;
 ;     -- Input Ports with no Source                      ; 0    ; 0                                               ; 0    ; 0                              ;
 ;     -- Output Ports with no Source                     ; 0    ; 0                                               ; 0    ; 0                              ;
 ;     -- Input Ports with no Fanout                      ; 0    ; 6                                               ; 151  ; 1                              ;
-;     -- Output Ports with no Fanout                     ; 0    ; 0                                               ; 242  ; 0                              ;
+;     -- Output Ports with no Fanout                     ; 0    ; 0                                               ; 243  ; 0                              ;
 +--------------------------------------------------------+------+-------------------------------------------------+------+--------------------------------+
 Note: Resource usage numbers presented for Partitions containing post-synthesis logic are estimates.  For Partitions containing post-fit logic, resource usage numbers are accurate based on previous placement information.  Actual Fitter results may vary depending on current Fitter Preservation Level assignments.
 
@@ -749,9 +741,9 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 ;     -- PIN_43        ; Top       ; Input Pad     ; Unplaced ; Synthesized                                ;
 ;     -- PIN_43~input  ; Top       ; Input Buffer  ; Unplaced ; Synthesized                                ;
 ;                      ;           ;               ;          ;                                            ;
-; PIN_62               ; Top       ; Bidir Port    ; n/a      ;                                            ;
-;     -- PIN_62        ; Top       ; Bidir Pad     ; Unplaced ; Synthesized                                ;
-;     -- PIN_62~output ; Top       ; Output Buffer ; Unplaced ; Preserved from Synthesis Netlist (WYSIWYG) ;
+; PIN_62               ; Top       ; Output Port   ; n/a      ;                                            ;
+;     -- PIN_62        ; Top       ; Output Pad    ; Unplaced ; Synthesized                                ;
+;     -- PIN_62~output ; Top       ; Output Buffer ; Unplaced ; Synthesized                                ;
 ;                      ;           ;               ;          ;                                            ;
 ; PIN_8                ; Top       ; Bidir Port    ; n/a      ;                                            ;
 ;     -- PIN_8         ; Top       ; Bidir Pad     ; Unplaced ; Synthesized                                ;
@@ -781,20 +773,20 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 +---------------------------------------------+--------------------------------+
 ; Resource                                    ; Usage                          ;
 +---------------------------------------------+--------------------------------+
-; Estimated Total logic elements              ; 535                            ;
+; Estimated Total logic elements              ; 616                            ;
 ;                                             ;                                ;
-; Total combinational functions               ; 477                            ;
+; Total combinational functions               ; 526                            ;
 ; Logic element usage by number of LUT inputs ;                                ;
-;     -- 4 input functions                    ; 122                            ;
-;     -- 3 input functions                    ; 26                             ;
-;     -- <=2 input functions                  ; 329                            ;
+;     -- 4 input functions                    ; 153                            ;
+;     -- 3 input functions                    ; 67                             ;
+;     -- <=2 input functions                  ; 306                            ;
 ;                                             ;                                ;
 ; Logic elements by mode                      ;                                ;
-;     -- normal mode                          ; 462                            ;
-;     -- arithmetic mode                      ; 15                             ;
+;     -- normal mode                          ; 480                            ;
+;     -- arithmetic mode                      ; 46                             ;
 ;                                             ;                                ;
-; Total registers                             ; 195                            ;
-;     -- Dedicated logic registers            ; 195                            ;
+; Total registers                             ; 268                            ;
+;     -- Dedicated logic registers            ; 268                            ;
 ;     -- I/O registers                        ; 0                              ;
 ;                                             ;                                ;
 ; Virtual pins                                ; 1                              ;
@@ -804,9 +796,9 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 ;     -- PLLs                                 ; 1                              ;
 ;                                             ;                                ;
 ; Maximum fan-out node                        ; alta_gclksw:gclksw_inst|clkout ;
-; Maximum fan-out                             ; 195                            ;
-; Total fan-out                               ; 1589                           ;
-; Average fan-out                             ; 2.27                           ;
+; Maximum fan-out                             ; 268                            ;
+; Total fan-out                               ; 2046                           ;
+; Average fan-out                             ; 2.49                           ;
 +---------------------------------------------+--------------------------------+
 
 
@@ -816,7 +808,7 @@ Note: Resource usage numbers presented for Partitions containing post-synthesis 
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Partition Merge
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Mar 18 14:44:39 2024
+    Info: Processing started: Thu Mar 21 15:27:23 2024
 Info: Command: quartus_cdb --read_settings_files=off --write_settings_files=off example_board -c example_board --merge=on
 Info (35007): Using synthesis netlist for partition "Top"
 Info (35007): Using synthesis netlist for partition "macro_inst_gen_per_0__gen_adc_adc_inst_adc_inst"
@@ -824,8 +816,8 @@ Info (35007): Using synthesis netlist for partition "rv32"
 Info (35002): Resolved and merged 3 partition(s)
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 2 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (35048): Found 182 ports with constant drivers. For more information, refer to the Partition Merger report
-Info (35047): Found 400 ports with no fan-out. For more information, refer to the Partition Merger report
+Info (35048): Found 173 ports with constant drivers. For more information, refer to the Partition Merger report
+Info (35047): Found 401 ports with no fan-out. For more information, refer to the Partition Merger report
 Warning (35016): Found partition port(s) not driving logic, possibly wasting area
     Warning (35017): Partition port "alta_rv32:rv32|sys_clk", driven by node "alta_gclksw:gclksw_inst|gclk_switch", does not drive logic
     Warning (35018): Partition port "pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|alta_adc:adc_inst|insel[0]", driven by node "pulse_ip:macro_inst|apb_adc:gen_per[0].gen_adc.adc_inst|Mux4~3", does not drive logic
@@ -849,19 +841,17 @@ Warning (35016): Found partition port(s) not driving logic, possibly wasting are
     Warning (35018): Partition port "alta_rv32:rv32|ext_dma_DMACLBREQ[2]", driven by node "ext_dma_DMACLBREQ[2]", does not drive logic
     Warning (35039): Only the first 20 ports are reported. For a full list of ports, refer to the Partition Warnings panel in the Partition Merge report
 Warning (15899): PLL "altpll:pll_inst|altpll_fs02:auto_generated|pll1" has parameters clk1_multiply_by and clk1_divide_by specified but port CLK[1] is not connected
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "PIN_37"
-    Warning (15610): No output dependent on input pin "PIN_38"
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "PIN_OSC"
-Info (21057): Implemented 556 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 639 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21060): Implemented 4 bidirectional pins
-    Info (21061): Implemented 543 logic cells
+    Info (21059): Implemented 2 output pins
+    Info (21060): Implemented 3 bidirectional pins
+    Info (21061): Implemented 626 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Partition Merge was successful. 0 errors, 27 warnings
+Info: Quartus II 64-Bit Partition Merge was successful. 0 errors, 25 warnings
     Info: Peak virtual memory: 4630 megabytes
-    Info: Processing ended: Mon Mar 18 14:44:40 2024
+    Info: Processing ended: Thu Mar 21 15:27:24 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

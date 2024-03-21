@@ -1,6 +1,7 @@
 module pulse_ip (
   input              PLUS_A,
   input              PLUS_B,
+  output tri0        TEST_LED,
   input              cpld_rst_out_data,
   input              cpld_rst_out_en,
   input              sys_clock,

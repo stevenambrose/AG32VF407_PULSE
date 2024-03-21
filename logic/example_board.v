@@ -18,7 +18,7 @@ input PIN_37;
 input PIN_38;
 output PIN_42;
 input PIN_43;
-inout PIN_62;
+output PIN_62;
 inout PIN_8;
 inout PIN_9;
 input PIN_HSE;
@@ -38,12 +38,6 @@ assign PIN_42 = PIN_42_out_en ? PIN_42_out_data : 1'bz;
 
 // UART0_UARTRXD, GPIO6_1
 assign PIN_43_in = PIN_43;
-
-// GPIO4_4, GPIO4_4
-assign PIN_62_in = PIN_62;
-wire PIN_62_out_en;
-wire PIN_62_out_data;
-assign PIN_62 = PIN_62_out_en ? PIN_62_out_data : 1'bz;
 
 // GPIO4_3, GPIO4_3
 assign PIN_8_in = PIN_8;
@@ -241,6 +235,7 @@ assign sys_gck = sys_clk;
 pulse_ip macro_inst(
   .PLUS_A             (PIN_37             ),
   .PLUS_B             (PIN_38             ),
+  .TEST_LED           (PIN_62             ),
   .cpld_rst_out_data  (cpld_rst_out_data  ),
   .cpld_rst_out_en    (cpld_rst_out_en    ),
   .sys_clock          (sys_gck            ),
@@ -301,11 +296,9 @@ assign PIN_9_out_data = gpio4_io_out_data[2];
 assign PIN_9_out_en = gpio4_io_out_en[2];
 assign PIN_8_out_data = gpio4_io_out_data[3];
 assign PIN_8_out_en = gpio4_io_out_en[3];
-assign PIN_62_out_data = gpio4_io_out_data[4];
-assign PIN_62_out_en = gpio4_io_out_en[4];
 assign cpld_rst_out_data = gpio4_io_out_data[5];
 assign cpld_rst_out_en = gpio4_io_out_en[5];
-(* keep = 1 *) wire [7:0] gpio4_io_in = {1'b0, 1'b0, 1'b0, PIN_62_in, PIN_8_in, PIN_9_in, PIN_10_in, 1'b0};
+(* keep = 1 *) wire [7:0] gpio4_io_in = {1'b0, 1'b0, 1'b0, 1'b0, PIN_8_in, PIN_9_in, PIN_10_in, 1'b0};
 
 (* keep = 1 *) wire [7:0] gpio5_io_out_data;
 (* keep = 1 *) wire [7:0] gpio5_io_out_en;

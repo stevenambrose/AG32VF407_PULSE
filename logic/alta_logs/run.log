@@ -7,7 +7,7 @@ Args : -X "set QUARTUS_SDC true" -X "set FITTING Auto" -X "set FITTER full" -X "
 > set ar_timing_derate ${TIMING_DERATE}
 > 
 > date_time
-Mon Mar 18 13:52:50 2024
+Thu Mar 21 15:28:09 2024
 > if { [file exists [file join . ${DESIGN}.pre.asf]] } {
   alta::tcl_highlight "Using pre-ASF file ${DESIGN}.pre.asf.\n"
   source [file join . ${DESIGN}.pre.asf]
@@ -300,8 +300,8 @@ Loading architect libraries...
 ## CPU time: 0:0:0, REAL time: 0:0:0
 ## Memory Usage: 48MB (48MB)
 Loading route table...
-## CPU time: 0:0:6, REAL time: 0:0:8
-## Memory Usage: 304MB (304MB)
+## CPU time: 0:0:6, REAL time: 0:0:6
+## Memory Usage: 305MB (305MB)
 Using design verilog file ./simulation/modelsim/example_board.vo.
 Preparing design...
 Info: Rename duplicated module cell alta_adc to alta_adc_duplicated at ./alta_db/flatten.vx:1.
@@ -311,20 +311,21 @@ Info: Removing bbox feeder slice ext_dma_DMACCLR[0] driven by BBOX rv32|ext_dma_
 Info: Removing bbox feeder slice gpio4_io_in[1] driving BBOX rv32|gpio4_io_in[1].
 Info: Removing bbox feeder slice gpio4_io_in[2] driving BBOX rv32|gpio4_io_in[2].
 Info: Removing bbox feeder slice gpio4_io_in[3] driving BBOX rv32|gpio4_io_in[3].
-Info: Removing bbox feeder slice gpio4_io_in[4] driving BBOX rv32|gpio4_io_in[4].
 Info: Removing bbox feeder slice gpio4_io_out_data[1] driven by BBOX rv32|gpio4_io_out_data[1].
 Info: Removing bbox feeder slice gpio4_io_out_data[2] driven by BBOX rv32|gpio4_io_out_data[2].
 Info: Removing bbox feeder slice gpio4_io_out_data[3] driven by BBOX rv32|gpio4_io_out_data[3].
-Info: Removing bbox feeder slice gpio4_io_out_data[4] driven by BBOX rv32|gpio4_io_out_data[4].
 Info: Removing bbox feeder slice gpio4_io_out_en[1] driven by BBOX rv32|gpio4_io_out_en[1].
 Info: Removing bbox feeder slice gpio4_io_out_en[2] driven by BBOX rv32|gpio4_io_out_en[2].
 Info: Removing bbox feeder slice gpio4_io_out_en[3] driven by BBOX rv32|gpio4_io_out_en[3].
-Info: Removing bbox feeder slice gpio4_io_out_en[4] driven by BBOX rv32|gpio4_io_out_en[4].
 Info: Removing bbox feeder slice gpio6_io_in[1] driving BBOX rv32|gpio6_io_in[1].
 Info: Removing bbox feeder slice gpio7_io_out_data[6] driven by BBOX rv32|gpio7_io_out_data[6].
 Info: Removing bbox feeder slice gpio7_io_out_en[6] driven by BBOX rv32|gpio7_io_out_en[6].
 Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|adc_en~_wirecell driving BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|enb inverted.
-Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[10]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[10].
+Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[11]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[11].
+Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[5]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[5].
+Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[7]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[7].
+Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[8]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[8].
+Info: Removing bbox feeder slice macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[9]~feeder driven by BBOX macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst|db[9].
 Info: Removing bbox feeder slice mem_ahb_haddr[10] driven by BBOX rv32|mem_ahb_haddr[10].
 Info: Removing bbox feeder slice mem_ahb_haddr[11] driven by BBOX rv32|mem_ahb_haddr[11].
 Info: Removing bbox feeder slice mem_ahb_haddr[12] driven by BBOX rv32|mem_ahb_haddr[12].
@@ -343,6 +344,9 @@ Info: Removing bbox feeder slice mem_ahb_hrdata[0] driving BBOX rv32|mem_ahb_hrd
 Info: Removing bbox feeder slice mem_ahb_hrdata[10] driving BBOX rv32|mem_ahb_hrdata[10].
 Info: Removing bbox feeder slice mem_ahb_hrdata[11] driving BBOX rv32|mem_ahb_hrdata[11].
 Info: Removing bbox feeder slice mem_ahb_hrdata[12] driving BBOX rv32|mem_ahb_hrdata[12].
+Info: Removing bbox feeder slice mem_ahb_hrdata[13] driving BBOX rv32|mem_ahb_hrdata[13].
+Info: Removing bbox feeder slice mem_ahb_hrdata[14] driving BBOX rv32|mem_ahb_hrdata[14].
+Info: Removing bbox feeder slice mem_ahb_hrdata[15] driving BBOX rv32|mem_ahb_hrdata[15].
 Info: Removing bbox feeder slice mem_ahb_hrdata[16] driving BBOX rv32|mem_ahb_hrdata[16].
 Info: Removing bbox feeder slice mem_ahb_hrdata[17] driving BBOX rv32|mem_ahb_hrdata[17].
 Info: Removing bbox feeder slice mem_ahb_hrdata[18] driving BBOX rv32|mem_ahb_hrdata[18].
@@ -418,21 +422,21 @@ VCO frequency: 500.000 Mhz
   clkout4: Disabled, 0.977 Mhz
 Info: Instance gclksw_inst|gclk_switch is identified as a clock switch.
 Packing Statistics
- Total      Logics : 456/2112 ( 21%)
- Total        LUTs : 415/2112 ( 19%)
- Total   Registers : 195/2112 (  9%)
+ Total      Logics : 503/2112 ( 23%)
+ Total        LUTs : 441/2112 ( 20%)
+ Total   Registers : 268/2112 ( 12%)
  Total  Block Rams :   0/   4 (  0%)
  Total        PLLs :   1/   1 (100%)
  Total        Pins :  11/ 128 (  8%)
  Global    Signals :   2/   5 ( 40%)
                            PLL_ENABLE~clkctrl_outclk (from:                               PLL_ENABLE~combout)
       auto_generated_inst.hbo_22_f9ff3d300b43c0f2_bp (from:   auto_generated_inst.hbo_22_f9ff3d300b43c0f2_bp)
- Total Lonely   Datain   : 29
- Total Lonely   Register : 12
- Total LUT-FF   Pairs    : 111
- Total Register Packings : 43
+ Total Lonely   Datain   : 30
+ Total Lonely   Register : 32
+ Total LUT-FF   Pairs    : 139
+ Total Register Packings : 67
  Registers with synchronous    reset : 0
- Registers with asynchronous   reset : 179
+ Registers with asynchronous   reset : 219
  Registers with sync and async reset : 16
 ## CPU time: 0:0:0, REAL time: 0:0:0
 ## Memory Usage: 307MB (307MB)
@@ -444,10 +448,10 @@ Reading DB design...
 ## Memory Usage: 324MB (324MB)
 Processing design...
 > set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_62~output false
-> set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_8~output false
 > set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_9~output false
 > set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_42~output false
 > set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_10~output false
+> set_instance_assignment -name ENABLE_OPEN_DRAIN -to PIN_8~output false
 > set_instance_assignment -name CLKIN_FREQ -extension -to pll_inst|auto_generated|pll1 8
 > set_instance_assignment -extension -name FIXED_COORD -to gclksw_inst|gclk_switch__alta_gclksw {22 4 0}
 > set_instance_assignment -extension -name FIXED_COORD -to gclksw_inst|gclk_switch {22 4 5}
@@ -463,182 +467,177 @@ Processing design...
 > set_location_assignment -to PIN_HSI PIN_HSI
 > set_location_assignment -to PIN_OSC PIN_OSC
 Info: Found GCLK net PLL_ENABLE~clkctrl_outclk (1).
-Info: Found GCLK net auto_generated_inst.hbo_22_f9ff3d300b43c0f2_bp (39).
+Info: Found GCLK net auto_generated_inst.hbo_22_f9ff3d300b43c0f2_bp (43).
 Info: Fixing net rv32.resetn_out, from rv32|resetn_out to gclksw_inst|gclk_switch__alta_gclksw|resetn.
 Info: Fixing net gclksw_inst|gclk_switch__alta_gclksw__clkout, from gclksw_inst|gclk_switch__alta_gclksw|clkout to rv32|sys_clk.
 Info: Fixing net auto_generated_inst.hbo_13_c009752f840d604c_bp, from pll_inst|auto_generated|pll1|lock to rv32|sys_ctrl_pllReady.
-Info: Slice slave_ahb_haddr[1] is removed.
-Info: Slice slave_ahb_htrans[1] is removed.
-Info: Slice gpio9_io_in[3] is removed.
-Info: Slice slave_ahb_haddr[19] is removed.
-Info: Slice local_int[0] is removed.
-Info: Slice slave_ahb_hburst[1] is removed.
-Info: Slice slave_ahb_hwdata[3] is removed.
-Info: Slice slave_ahb_hwdata[21] is removed.
-Info: Slice slave_ahb_haddr[31] is removed.
-Info: Slice gpio8_io_in[1] is removed.
-Info: Slice gpio1_io_in[5] is removed.
-Info: Slice gpio6_io_in[5] is removed.
-Info: Slice slave_ahb_hburst[0] is removed.
-Info: Slice slave_ahb_hwdata[22] is removed.
-Info: Slice slave_ahb_haddr[21] is removed.
-Info: Slice gpio1_io_in[2] is removed.
-Info: Slice gpio1_io_in[1] is removed.
-Info: Slice gpio5_io_in[2] is removed.
-Info: Slice slave_ahb_hwdata[5] is removed.
-Info: Slice gpio8_io_in[5] is removed.
-Info: Slice ext_dma_DMACBREQ[3] is removed.
-Info: Slice slave_ahb_haddr[10] is removed.
-Info: Slice slave_ahb_haddr[18] is removed.
-Info: Slice slave_ahb_haddr[9] is removed.
-Info: Slice gpio6_io_in[2] is removed.
-Info: Slice ext_dma_DMACSREQ[1] is removed.
-Info: Slice gpio7_io_in[2] is removed.
-Info: Slice slave_ahb_haddr[2] is removed.
-Info: Slice slave_ahb_hwdata[7] is removed.
-Info: Slice gpio3_io_in[0] is removed.
-Info: Slice gpio5_io_in[0] is removed.
-Info: Slice gpio2_io_in[4] is removed.
-Info: Slice gpio8_io_in[0] is removed.
-Info: Slice gpio0_io_in[4] is removed.
-Info: Slice gpio7_io_in[0] is removed.
-Info: Slice slave_ahb_haddr[0] is removed.
-Info: Slice gpio3_io_in[6] is removed.
-Info: Slice gpio9_io_in[1] is removed.
-Info: Slice slave_ahb_hwdata[6] is removed.
-Info: Slice gpio9_io_in[7] is removed.
-Info: Slice slave_ahb_hwdata[14] is removed.
-Info: Slice slave_ahb_hwdata[19] is removed.
-Info: Slice gpio5_io_in[5] is removed.
-Info: Slice slave_ahb_hwdata[8] is removed.
-Info: Slice slave_ahb_hwdata[23] is removed.
-Info: Slice gpio0_io_in[7] is removed.
-Info: Slice slave_ahb_hwdata[12] is removed.
-Info: Slice ext_dma_DMACLBREQ[3] is removed.
-Info: Slice slave_ahb_haddr[4] is removed.
-Info: Slice gpio7_io_in[7] is removed.
-Info: Slice slave_ahb_hsel is removed.
-Info: Slice gpio8_io_in[3] is removed.
-Info: Slice ext_dma_DMACSREQ[3] is removed.
-Info: Slice slave_ahb_hwdata[10] is removed.
-Info: Slice gpio8_io_in[7] is removed.
-Info: Slice slave_ahb_haddr[15] is removed.
-Info: Slice gpio7_io_in[5] is removed.
-Info: Slice gpio1_io_in[7] is removed.
-Info: Slice gpio2_io_in[2] is removed.
-Info: Slice local_int[3] is removed.
-Info: Slice gpio6_io_in[6] is removed.
-Info: Slice gpio9_io_in[0] is removed.
-Info: Slice gpio2_io_in[3] is removed.
-Info: Slice gpio8_io_in[6] is removed.
-Info: Slice gpio0_io_in[1] is removed.
-Info: Slice gpio4_io_in[5] is removed.
-Info: Slice slave_ahb_hwdata[0] is removed.
-Info: Slice slave_ahb_hwdata[16] is removed.
-Info: Slice local_int[2] is removed.
-Info: Slice slave_ahb_haddr[5] is removed.
-Info: Slice slave_ahb_hready is removed.
-Info: Slice slave_ahb_hwdata[31] is removed.
-Info: Slice gpio1_io_in[0] is removed.
-Info: Slice slave_ahb_htrans[0] is removed.
-Info: Slice slave_ahb_hwdata[30] is removed.
-Info: Slice gpio0_io_in[0] is removed.
-Info: Slice gpio2_io_in[1] is removed.
-Info: Slice gpio5_io_in[1] is removed.
-Info: Slice slave_ahb_hwdata[29] is removed.
-Info: Slice gpio6_io_in[3] is removed.
-Info: Slice gpio6_io_in[0] is removed.
-Info: Slice gpio5_io_in[7] is removed.
-Info: Slice gpio2_io_in[7] is removed.
-Info: Slice slave_ahb_haddr[11] is removed.
-Info: Slice slave_ahb_hwdata[15] is removed.
-Info: Slice gpio2_io_in[5] is removed.
-Info: Slice ext_dma_DMACSREQ[0] is removed.
-Info: Slice slave_ahb_haddr[23] is removed.
-Info: Slice gpio3_io_in[7] is removed.
-Info: Slice ext_dma_DMACLBREQ[1] is removed.
-Info: Slice gpio7_io_in[6] is removed.
-Info: Slice ext_dma_DMACLSREQ[0] is removed.
-Info: Slice slave_ahb_haddr[22] is removed.
-Info: Slice gpio0_io_in[2] is removed.
-Info: Slice slave_ahb_haddr[25] is removed.
-Info: Slice gpio9_io_in[6] is removed.
-Info: Slice gpio9_io_in[5] is removed.
-Info: Slice slave_ahb_haddr[6] is removed.
-Info: Slice slave_ahb_hwdata[9] is removed.
-Info: Slice gpio6_io_in[7] is removed.
-Info: Slice gpio3_io_in[3] is removed.
-Info: Slice slave_ahb_haddr[26] is removed.
-Info: Slice slave_ahb_hwdata[4] is removed.
-Info: Slice gpio9_io_in[4] is removed.
-Info: Slice slave_ahb_hwdata[20] is removed.
-Info: Slice gpio1_io_in[3] is removed.
-Info: Slice gpio3_io_in[2] is removed.
-Info: Slice slave_ahb_hwdata[26] is removed.
-Info: Slice gpio5_io_in[6] is removed.
-Info: Slice slave_ahb_hburst[2] is removed.
-Info: Slice slave_ahb_haddr[3] is removed.
-Info: Slice gpio7_io_in[4] is removed.
-Info: Slice mem_ahb_hrdata[14] is removed.
-Info: Slice slave_ahb_hsize[0] is removed.
-Info: Slice gpio3_io_in[5] is removed.
-Info: Slice gpio8_io_in[2] is removed.
-Info: Slice gpio1_io_in[4] is removed.
-Info: Slice slave_ahb_haddr[14] is removed.
-Info: Slice ext_dma_DMACLSREQ[3] is removed.
-Info: Slice ext_dma_DMACLSREQ[2] is removed.
-Info: Slice gpio7_io_in[3] is removed.
-Info: Slice gpio0_io_in[5] is removed.
-Info: Slice slave_ahb_haddr[27] is removed.
-Info: Slice gpio3_io_in[4] is removed.
-Info: Slice gpio2_io_in[0] is removed.
-Info: Slice gpio4_io_in[0] is removed.
-Info: Slice gpio0_io_in[6] is removed.
-Info: Slice gpio2_io_in[6] is removed.
-Info: Slice gpio8_io_in[4] is removed.
-Info: Slice gpio5_io_in[3] is removed.
-Info: Slice slave_ahb_haddr[20] is removed.
-Info: Slice gpio4_io_in[7] is removed.
-Info: Slice slave_ahb_hwdata[27] is removed.
-Info: Slice slave_ahb_haddr[12] is removed.
-Info: Slice gpio6_io_in[4] is removed.
-Info: Slice slave_ahb_haddr[24] is removed.
-Info: Slice gpio3_io_in[1] is removed.
-Info: Slice slave_ahb_haddr[13] is removed.
-Info: Slice gpio9_io_in[2] is removed.
-Info: Slice slave_ahb_hwdata[13] is removed.
-Info: Slice gpio7_io_in[1] is removed.
-Info: Slice slave_ahb_haddr[29] is removed.
-Info: Slice slave_ahb_haddr[17] is removed.
-Info: Slice slave_ahb_haddr[28] is removed.
-Info: Slice mem_ahb_hresp is removed.
-Info: Slice mem_ahb_hrdata[15] is removed.
-Info: Slice slave_ahb_hwdata[11] is removed.
-Info: Slice local_int[1] is removed.
-Info: Slice mem_ahb_hrdata[13] is removed.
-Info: Slice slave_ahb_hwdata[24] is removed.
-Info: Slice slave_ahb_hwrite is removed.
-Info: Slice slave_ahb_hwdata[17] is removed.
-Info: Slice slave_ahb_hwdata[18] is removed.
-Info: Slice gpio0_io_in[3] is removed.
-Info: Slice slave_ahb_haddr[8] is removed.
-Info: Slice slave_ahb_hwdata[2] is removed.
-Info: Slice ~VCC is removed.
-Info: Slice slave_ahb_hwdata[25] is removed.
-Info: Slice ext_dma_DMACLBREQ[2] is removed.
-Info: Slice slave_ahb_hwdata[28] is removed.
-Info: Slice gpio4_io_in[6] is removed.
-Info: Slice gpio5_io_in[4] is removed.
-Info: Slice slave_ahb_haddr[7] is removed.
-Info: Slice slave_ahb_hsize[1] is removed.
-Info: Slice ext_dma_DMACBREQ[1] is removed.
 Info: Slice ext_dma_DMACBREQ[2] is removed.
-Info: Slice slave_ahb_hsize[2] is removed.
-Info: Slice ~GND is removed.
-Info: Slice ext_dma_DMACLBREQ[0] is removed.
+Info: Slice slave_ahb_hwdata[9] is removed.
+Info: Slice slave_ahb_haddr[24] is removed.
+Info: Slice slave_ahb_haddr[10] is removed.
+Info: Slice gpio0_io_in[6] is removed.
+Info: Slice slave_ahb_haddr[29] is removed.
+Info: Slice slave_ahb_hwdata[31] is removed.
+Info: Slice gpio9_io_in[7] is removed.
+Info: Slice gpio1_io_in[4] is removed.
+Info: Slice ext_dma_DMACLSREQ[0] is removed.
+Info: Slice gpio8_io_in[7] is removed.
+Info: Slice gpio2_io_in[4] is removed.
+Info: Slice slave_ahb_haddr[14] is removed.
+Info: Slice mem_ahb_hresp is removed.
+Info: Slice gpio2_io_in[1] is removed.
+Info: Slice slave_ahb_hwdata[25] is removed.
 Info: Slice slave_ahb_haddr[16] is removed.
-Info: The input of IO PIN_37 is disabled since all input pins are unused.
-Info: The input of IO PIN_38 is disabled since all input pins are unused.
+Info: Slice slave_ahb_haddr[5] is removed.
+Info: Slice ext_dma_DMACLBREQ[0] is removed.
+Info: Slice ext_dma_DMACLSREQ[3] is removed.
+Info: Slice slave_ahb_haddr[21] is removed.
+Info: Slice slave_ahb_haddr[0] is removed.
+Info: Slice gpio4_io_in[4] is removed.
+Info: Slice gpio3_io_in[5] is removed.
+Info: Slice slave_ahb_hwdata[1] is removed.
+Info: Slice slave_ahb_hwdata[27] is removed.
+Info: Slice slave_ahb_hwdata[14] is removed.
+Info: Slice gpio7_io_in[3] is removed.
+Info: Slice slave_ahb_haddr[2] is removed.
+Info: Slice ext_dma_DMACLBREQ[1] is removed.
+Info: Slice gpio2_io_in[7] is removed.
+Info: Slice gpio2_io_in[2] is removed.
+Info: Slice slave_ahb_htrans[1] is removed.
+Info: Slice gpio5_io_in[7] is removed.
+Info: Slice gpio0_io_in[4] is removed.
+Info: Slice gpio1_io_in[6] is removed.
+Info: Slice slave_ahb_hsel is removed.
+Info: Slice slave_ahb_hwdata[20] is removed.
+Info: Slice gpio8_io_in[6] is removed.
+Info: Slice gpio8_io_in[3] is removed.
+Info: Slice gpio9_io_in[4] is removed.
+Info: Slice ext_dma_DMACSREQ[3] is removed.
+Info: Slice gpio0_io_in[0] is removed.
+Info: Slice gpio6_io_in[5] is removed.
+Info: Slice slave_ahb_haddr[27] is removed.
+Info: Slice gpio7_io_in[7] is removed.
+Info: Slice gpio1_io_in[1] is removed.
+Info: Slice gpio6_io_in[2] is removed.
+Info: Slice gpio2_io_in[6] is removed.
+Info: Slice slave_ahb_haddr[19] is removed.
+Info: Slice slave_ahb_haddr[13] is removed.
+Info: Slice local_int[0] is removed.
+Info: Slice slave_ahb_hwdata[17] is removed.
+Info: Slice gpio7_io_in[1] is removed.
+Info: Slice ext_dma_DMACSREQ[2] is removed.
+Info: Slice gpio7_io_in[4] is removed.
+Info: Slice slave_ahb_hwdata[10] is removed.
+Info: Slice ext_dma_DMACLSREQ[1] is removed.
+Info: Slice slave_ahb_haddr[1] is removed.
+Info: Slice slave_ahb_haddr[18] is removed.
+Info: Slice ext_dma_DMACSREQ[0] is removed.
+Info: Slice slave_ahb_hwdata[28] is removed.
+Info: Slice slave_ahb_haddr[12] is removed.
+Info: Slice gpio5_io_in[1] is removed.
+Info: Slice slave_ahb_hwdata[13] is removed.
+Info: Slice gpio1_io_in[2] is removed.
+Info: Slice gpio6_io_in[4] is removed.
+Info: Slice slave_ahb_hwdata[12] is removed.
+Info: Slice slave_ahb_hwdata[26] is removed.
+Info: Slice gpio1_io_in[5] is removed.
+Info: Slice slave_ahb_hburst[0] is removed.
+Info: Slice slave_ahb_hsize[0] is removed.
+Info: Slice slave_ahb_hwdata[29] is removed.
+Info: Slice gpio4_io_in[6] is removed.
+Info: Slice gpio6_io_in[6] is removed.
+Info: Slice ext_dma_DMACBREQ[3] is removed.
+Info: Slice gpio8_io_in[2] is removed.
+Info: Slice gpio4_io_in[0] is removed.
+Info: Slice slave_ahb_haddr[26] is removed.
+Info: Slice slave_ahb_haddr[30] is removed.
+Info: Slice gpio3_io_in[6] is removed.
+Info: Slice gpio3_io_in[7] is removed.
+Info: Slice gpio4_io_in[5] is removed.
+Info: Slice slave_ahb_hwrite is removed.
+Info: Slice local_int[3] is removed.
+Info: Slice gpio7_io_in[5] is removed.
+Info: Slice ext_dma_DMACLBREQ[3] is removed.
+Info: Slice slave_ahb_hwdata[6] is removed.
+Info: Slice slave_ahb_haddr[11] is removed.
+Info: Slice slave_ahb_haddr[28] is removed.
+Info: Slice gpio9_io_in[2] is removed.
+Info: Slice slave_ahb_hwdata[3] is removed.
+Info: Slice slave_ahb_hready is removed.
+Info: Slice gpio5_io_in[0] is removed.
+Info: Slice slave_ahb_haddr[3] is removed.
+Info: Slice slave_ahb_hwdata[18] is removed.
+Info: Slice slave_ahb_hwdata[8] is removed.
+Info: Slice slave_ahb_haddr[25] is removed.
+Info: Slice slave_ahb_haddr[8] is removed.
+Info: Slice slave_ahb_hburst[1] is removed.
+Info: Slice slave_ahb_haddr[15] is removed.
+Info: Slice slave_ahb_hwdata[22] is removed.
+Info: Slice slave_ahb_hwdata[16] is removed.
+Info: Slice gpio6_io_in[7] is removed.
+Info: Slice slave_ahb_hburst[2] is removed.
+Info: Slice ext_dma_DMACLSREQ[2] is removed.
+Info: Slice gpio5_io_in[6] is removed.
+Info: Slice ext_dma_DMACLBREQ[2] is removed.
+Info: Slice gpio1_io_in[0] is removed.
+Info: Slice gpio7_io_in[6] is removed.
+Info: Slice slave_ahb_haddr[20] is removed.
+Info: Slice slave_ahb_hwdata[24] is removed.
+Info: Slice gpio2_io_in[3] is removed.
+Info: Slice gpio3_io_in[2] is removed.
+Info: Slice ~VCC is removed.
+Info: Slice gpio7_io_in[2] is removed.
+Info: Slice ext_dma_DMACBREQ[1] is removed.
+Info: Slice gpio7_io_in[0] is removed.
+Info: Slice gpio0_io_in[3] is removed.
+Info: Slice gpio0_io_in[7] is removed.
+Info: Slice gpio4_io_in[7] is removed.
+Info: Slice slave_ahb_haddr[31] is removed.
+Info: Slice ~GND is removed.
+Info: Slice gpio8_io_in[5] is removed.
+Info: Slice gpio9_io_in[6] is removed.
+Info: Slice slave_ahb_haddr[6] is removed.
+Info: Slice slave_ahb_hwdata[19] is removed.
+Info: Slice slave_ahb_hwdata[7] is removed.
+Info: Slice gpio9_io_in[5] is removed.
+Info: Slice slave_ahb_hwdata[4] is removed.
+Info: Slice gpio3_io_in[4] is removed.
+Info: Slice slave_ahb_haddr[7] is removed.
+Info: Slice gpio2_io_in[5] is removed.
+Info: Slice gpio6_io_in[0] is removed.
+Info: Slice gpio9_io_in[0] is removed.
+Info: Slice slave_ahb_haddr[17] is removed.
+Info: Slice gpio2_io_in[0] is removed.
+Info: Slice gpio5_io_in[4] is removed.
+Info: Slice gpio3_io_in[3] is removed.
+Info: Slice slave_ahb_hsize[1] is removed.
+Info: Slice gpio8_io_in[4] is removed.
+Info: Slice gpio9_io_in[3] is removed.
+Info: Slice gpio0_io_in[2] is removed.
+Info: Slice gpio9_io_in[1] is removed.
+Info: Slice ext_dma_DMACSREQ[1] is removed.
+Info: Slice local_int[2] is removed.
+Info: Slice gpio1_io_in[7] is removed.
+Info: Slice gpio6_io_in[3] is removed.
+Info: Slice local_int[1] is removed.
+Info: Slice gpio3_io_in[0] is removed.
+Info: Slice slave_ahb_hwdata[15] is removed.
+Info: Slice slave_ahb_haddr[4] is removed.
+Info: Slice gpio8_io_in[0] is removed.
+Info: Slice slave_ahb_hwdata[23] is removed.
+Info: Slice gpio0_io_in[5] is removed.
+Info: Slice gpio1_io_in[3] is removed.
+Info: Slice gpio5_io_in[5] is removed.
+Info: Slice slave_ahb_hsize[2] is removed.
+Info: Slice slave_ahb_hwdata[0] is removed.
+Info: Slice slave_ahb_hwdata[2] is removed.
+Info: Slice slave_ahb_htrans[0] is removed.
+Info: Slice slave_ahb_haddr[9] is removed.
+Info: Slice gpio3_io_in[1] is removed.
+Info: Slice slave_ahb_hwdata[11] is removed.
+Info: Slice slave_ahb_hwdata[21] is removed.
+Info: Slice gpio5_io_in[2] is removed.
+Info: Slice slave_ahb_hwdata[30] is removed.
 ## CPU time: 0:0:0, REAL time: 0:0:0
 ## Memory Usage: 325MB (325MB)
 Using design SDC file ./example_board.sdc.
@@ -755,25 +754,25 @@ Warn: [set_instance_assignment] Empty -to specified, objects PLUS_A are not reco
 > set_instance_assignment -name CFG_KEEP -to PLUS_B 2'b01 -extension
 Warn: [set_instance_assignment] Empty -to specified, objects PLUS_B are not recognized.
 > # pio_end    <<<<<< DO NOT MODIFY THIS SECTION! <<<<<<
-Info: The input of IO PIN_37 is disabled since all input pins are unused.
-Info: The input of IO PIN_38 is disabled since all input pins are unused.
 Warn: Slice macro_inst|gen_per[0].gen_adc.adc_inst|adc_inst is auto placed at location (22,7).
-Info: The input of IO PIN_37 is disabled since all input pins are unused.
-Info: The input of IO PIN_38 is disabled since all input pins are unused.
+Warn: Logic slice macro_inst|gen_per[1].gen_pulse_cnt.pulse_cnt_inst|prdata[1] is used as a latch, output net: macro_inst|gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_a_reg0~1_combout.
+Warn: Logic slice macro_inst|gen_per[1].gen_pulse_cnt.pulse_cnt_inst|prdata[3] is used as a latch, output net: macro_inst|gen_per[1].gen_pulse_cnt.pulse_cnt_inst|plus_b_reg0~1_combout.
+Warn: Auto constraint INTERNAL: create_generated_clock -name Internal_generated_clock_rv32|gpio4_io_out_data[5] -divide_by 2 -add -source pll_inst|auto_generated|pll1|clkout0 -master_clock pll_inst|auto_generated|pll1|clk[0] rv32|gpio4_io_out_data[5].
+Warn: Auto constraint INTERNAL: create_generated_clock -name Internal_generated_clock_rv32|gpio4_io_out_data[5] -divide_by 2 -add -source PIN_HSI -master_clock PIN_HSI rv32|gpio4_io_out_data[5].
 Placement Statistics
- Total  Logic    Counts  : 286/2112 (13.5%)
- Total  Logic    Tiles   : 24/132 (18.2%)
- Total  Valid    Nets    : 481 (304+177)
- Total  Valid    Fanouts : 1948 (1104+844)
- Total  Tile     Fanouts : 543
- Tile   Zip      Fanins  : 17 (1:35)
- Tile   Zip      Fanouts : 22 (0:143)
- Total  Ignored  Nets    : 420
- Total  Valid    Blocks  : 32 (24/5)
+ Total  Logic    Counts  : 336/2112 (15.9%)
+ Total  Logic    Tiles   : 26/132 (19.7%)
+ Total  Valid    Nets    : 573 (331+242)
+ Total  Valid    Fanouts : 2432 (1240+1192)
+ Total  Tile     Fanouts : 549
+ Tile   Zip      Fanins  : 15 (1:33)
+ Tile   Zip      Fanouts : 23 (2:209)
+ Total  Ignored  Nets    : 478
+ Total  Valid    Blocks  : 33 (25/5)
  Total  Ignored  Blocks  : 0
- Total  Zip Complexities : 155/640 1.84/285.52
- Avg    Zip   Bottleneck : 5.71 61.46
- Avg    Net   Bottleneck : 14.50 409.83
+ Total  Zip Complexities : 140/728 2.03/284.64
+ Avg    Zip   Bottleneck : 3.85 34.54
+ Avg    Net   Bottleneck : 13.77 386.00
 Iter #1/1 ...
 Pass 1 #1/1 ...
 Partitioning...
@@ -793,94 +792,91 @@ Pass 2 #1/1 ...
 Legalization and Swapping...
 ..........
 
-## CPU time: 0:0:1, REAL time: 0:0:2
+## CPU time: 0:0:1, REAL time: 0:0:1
 Pass 3 #1/1 ...
 Touchup...
 
 
-## CPU time: 0:0:0, REAL time: 0:0:0
+## CPU time: 0:0:0, REAL time: 0:0:1
 Pass 4 #1/1 ...
 Optimization...
 ............................................................
 Finishing...
 
-## CPU time: 0:0:2, REAL time: 0:0:3
-Total wire cost after placement: 3.515:0.3515:0.789(3.515:0.3515) 913.98(158.375)+2292(0)+668.229 1177.58(232.627)+346.5
+## CPU time: 0:0:3, REAL time: 0:0:3
+Total wire cost after placement: 2.58:0.258:0.748(2.58:0.258) 1096.66(205.883)+2782(0)+434.435 1257.11(253.254)+362
 
 *** Post Placement Timing Report ***
 === User constraints ===
 Fmax report
-  User constraint:   8.000MHz, Fmax: 154.202MHz, Clock: PIN_HSE
-  User constraint:  10.000MHz, Fmax: 154.202MHz, Clock: PIN_HSI
-  User constraint: 100.000MHz, Fmax: 154.202MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
+  User constraint:   8.000MHz, Fmax: 138.160MHz, Clock: PIN_HSE
+  User constraint:  10.000MHz, Fmax: 138.160MHz, Clock: PIN_HSI
+  User constraint: 100.000MHz, Fmax: 138.160MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
 
 Clock transfer report:
-  Worst setup: 118.515, with clock PIN_HSE
-  Worst setup:  93.515, with clock PIN_HSI
-  Worst setup:   3.515, with clock pll_inst|auto_generated|pll1|clk[0]
+  Worst setup: 117.762, with clock PIN_HSE
+  Worst setup:  92.762, with clock PIN_HSI
+  Worst setup:   2.762, with clock pll_inst|auto_generated|pll1|clk[0]
 
-  Worst  hold:   0.615, with clock PIN_HSE
-  Worst  hold:   0.615, with clock PIN_HSI
-  Worst  hold:   0.615, with clock pll_inst|auto_generated|pll1|clk[0]
+  Worst  hold:   0.603, with clock PIN_HSE
+  Worst  hold:   0.603, with clock PIN_HSI
+  Worst  hold:   0.603, with clock pll_inst|auto_generated|pll1|clk[0]
 
 === Auto constraints ===
+Clock transfer report:
+  Worst setup:  -4.503, from clock Internal_generated_clock_rv32|gpio4_io_out_data[5] to pll_inst|auto_generated|pll1|clk[0]
 
+  Worst  hold:   6.951, from clock Internal_generated_clock_rv32|gpio4_io_out_data[5] to pll_inst|auto_generated|pll1|clk[0]
 
 Coverage report
-  User constraints covered 1348 connections out of 1372 total, coverage: 98.3%
-  Auto constraints covered 1348 connections out of 1372 total, coverage: 98.3%
+  User constraints covered 1599 connections out of 1687 total, coverage: 94.8%
+  Auto constraints covered 1655 connections out of 1687 total, coverage: 98.1%
 
 
-Setup from rv32 to clken_ctrl_X59_Y6_N0, clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew 1.613, data 8.008
-  Slack:   3.515
-    Arrival Time:    7.000
+Setup from rv32 to clken_ctrl_X60_Y4_N0, clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew 1.613, data 8.761
+  Slack:   2.762
+    Arrival Time:    7.753
     Required Time:  10.515
 
 *** End Timing Report ***
 
 route_design -dump ./alta_db/route.tx -replace ./alta_db/replace.tx 
 Route Design Statistics
- Total Routing Nets : 481
- Fanout     Average : 3.05 (1..39)
- Max   Fanout  Net  : macro_inst|ahb2apb_inst|paddr[2]
- Logic       Slices : 286/2112 (13.5%)
+ Total Routing Nets : 573
+ Fanout     Average : 3.24 (1..42)
+ Max   Fanout  Net  : auto_generated_inst.hbo_22_f9ff3d300b43c0f2_bp
+ Logic       Slices : 336/2112 (15.9%)
 
 Routing...
  Budget Useful Skew...
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 1/1, route#: 481, violation# : 283, overflow# : 246, conflict# : 237, node#: 2795
+ iter = 1/1, route#: 573, violation# : 288, overflow# : 259, conflict# : 283, node#: 3281
 ## CPU time: 0:0:0, REAL time: 0:0:0
- iter = 2/2, route#: 481, violation# : 188, overflow# : 185, conflict# : 193, node#: 2948
+ iter = 2/2, route#: 573, violation# : 164, overflow# : 162, conflict# : 200, node#: 3481
+## CPU time: 0:0:0, REAL time: 0:0:0
+ iter = 3/3, route#: 573, violation# : 76, overflow# : 76, conflict# : 93, node#: 3605
 ## CPU time: 0:0:0, REAL time: 0:0:1
- iter = 3/3, route#: 481, violation# : 48, overflow# : 48, conflict# : 55, node#: 3154
+ iter = 4/4, route#: 573, violation# : 9, overflow# : 9, conflict# : 17, node#: 3688
 ## CPU time: 0:0:0, REAL time: 0:0:1
- iter = 4/4, route#: 481, violation# : 23, overflow# : 23, conflict# : 38, node#: 3189
-## CPU time: 0:0:0, REAL time: 0:0:1
- iter = 5/5, route#: 481, violation# : 0, overflow# : 0, conflict# : 0, node#: 3215
-## CPU time: 0:0:0, REAL time: 0:0:1
- iter = 6/3, route#: 25, violation# : 7, overflow# : 7, conflict# : 10, node#: 3209
+ iter = 5/5, route#: 573, violation# : 2, overflow# : 2, conflict# : 4, node#: 3706
 ## CPU time: 0:0:1, REAL time: 0:0:1
- iter = 7/4, route#: 17, violation# : 0, overflow# : 0, conflict# : 0, node#: 3223
+ iter = 6/6, route#: 573, violation# : 0, overflow# : 0, conflict# : 0, node#: 3712
 ## CPU time: 0:0:1, REAL time: 0:0:1
- iter = 8/3, route#: 37, violation# : 9, overflow# : 9, conflict# : 16, node#: 3202
+ iter = 7/2, route#: 23, violation# : 13, overflow# : 13, conflict# : 17, node#: 3691
 ## CPU time: 0:0:1, REAL time: 0:0:1
- iter = 9/4, route#: 24, violation# : 2, overflow# : 2, conflict# : 2, node#: 3226
+ iter = 8/3, route#: 12, violation# : 3, overflow# : 3, conflict# : 4, node#: 3704
 ## CPU time: 0:0:1, REAL time: 0:0:1
- iter = 10/5, route#: 17, violation# : 0, overflow# : 0, conflict# : 0, node#: 3223
+ iter = 9/4, route#: 8, violation# : 0, overflow# : 0, conflict# : 0, node#: 3710
+## CPU time: 0:0:1, REAL time: 0:0:1
+ iter = 10/3, route#: 8, violation# : 0, overflow# : 0, conflict# : 0, node#: 3713
 ## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 11/2, route#: 67, violation# : 42, overflow# : 42, conflict# : 41, node#: 3162
+ iter = 11/3, route#: 7, violation# : 0, overflow# : 0, conflict# : 0, node#: 3711
 ## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 12/3, route#: 36, violation# : 9, overflow# : 9, conflict# : 12, node#: 3205
+ iter = 12/3, route#: 13, violation# : 3, overflow# : 3, conflict# : 4, node#: 3704
 ## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 13/4, route#: 22, violation# : 1, overflow# : 1, conflict# : 2, node#: 3213
+ iter = 13/4, route#: 9, violation# : 1, overflow# : 1, conflict# : 2, node#: 3708
 ## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 14/5, route#: 17, violation# : 0, overflow# : 0, conflict# : 0, node#: 3214
-## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 15/2, route#: 31, violation# : 10, overflow# : 10, conflict# : 17, node#: 3201
-## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 16/3, route#: 26, violation# : 1, overflow# : 1, conflict# : 2, node#: 3220
-## CPU time: 0:0:1, REAL time: 0:0:2
- iter = 17/4, route#: 20, violation# : 0, overflow# : 0, conflict# : 0, node#: 3217
+ iter = 14/5, route#: 7, violation# : 0, overflow# : 0, conflict# : 0, node#: 3712
 Optimizing...
 ...
 
@@ -889,35 +885,39 @@ Done
 *** Post Routing Timing Report ***
 === User constraints ===
 Fmax report
-  User constraint:   8.000MHz, Fmax: 152.045MHz, Clock: PIN_HSE
-  User constraint:  10.000MHz, Fmax: 152.045MHz, Clock: PIN_HSI
-  User constraint: 100.000MHz, Fmax: 152.045MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
+  User constraint:   8.000MHz, Fmax: 142.633MHz, Clock: PIN_HSE
+  User constraint:  10.000MHz, Fmax: 142.633MHz, Clock: PIN_HSI
+  User constraint: 100.000MHz, Fmax: 142.633MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
 
 Clock transfer report:
-  Worst setup: 118.423, with clock PIN_HSE
-  Worst setup:  93.423, with clock PIN_HSI
-  Worst setup:   3.423, with clock pll_inst|auto_generated|pll1|clk[0]
+  Worst setup: 117.989, with clock PIN_HSE
+  Worst setup:  92.989, with clock PIN_HSI
+  Worst setup:   2.989, with clock pll_inst|auto_generated|pll1|clk[0]
 
-  Worst  hold:   0.615, with clock PIN_HSE
-  Worst  hold:   0.615, with clock PIN_HSI
-  Worst  hold:   0.615, with clock pll_inst|auto_generated|pll1|clk[0]
+  Worst  hold:   0.603, with clock PIN_HSE
+  Worst  hold:   0.603, with clock PIN_HSI
+  Worst  hold:   0.603, with clock pll_inst|auto_generated|pll1|clk[0]
 
 === Auto constraints ===
+Clock transfer report:
+  Worst setup:  -5.105, from clock Internal_generated_clock_rv32|gpio4_io_out_data[5] to pll_inst|auto_generated|pll1|clk[0]
 
+  Worst  hold:   6.254, from clock Internal_generated_clock_rv32|gpio4_io_out_data[5] to pll_inst|auto_generated|pll1|clk[0]
 
 Coverage report
-  User constraints covered 1348 connections out of 1372 total, coverage: 98.3%
-  Auto constraints covered 1348 connections out of 1372 total, coverage: 98.3%
+  User constraints covered 1599 connections out of 1687 total, coverage: 94.8%
+  Auto constraints covered 1655 connections out of 1687 total, coverage: 98.1%
 
 
-Setup from macro_inst|ahb2apb_inst|paddr[4] to macro_inst|gen_per[0].gen_adc.adc_inst|prdata[0], clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew -0.053, data 6.051
-  Slack:   3.423
-    Arrival Time:    7.115
-    Required Time:  10.538
+Setup from rv32 to clken_ctrl_X60_Y4_N0, clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew 1.613, data 8.534
+  Slack:   2.989
+    Arrival Time:    7.526
+    Required Time:  10.515
 
 *** End Timing Report ***
 
-Mon Mar 18 13:53:17 2024
+Thu Mar 21 15:28:33 2024
+Warn: User constraints has 5.2% uncovered.
 Generating batch file: {F:/fpga1/agm32/AgRV_pio/packages/tool-agrv_logic/python_dist/python.exe} {F:/fpga1/agm32/AgRV_pio/packages/tool-agrv_logic/pio/gen_batch} -d 1075838977 -i 0xbff5105000730062aa234371030002b7 -o ./example_board_batch.bin --logic-config ./example_board.bin --logic-address 0x80007000 
 > 
 > if { [file exists "./${DESIGN}.post.asf"] } {
@@ -928,7 +928,7 @@ Using post-ASF file example_board.post.asf.
 > # pio_begin  >>>>>> DO NOT MODIFY THIS SECTION! >>>>>>
 > # pio_end    <<<<<< DO NOT MODIFY THIS SECTION! <<<<<<
 > date_time
-Mon Mar 18 13:53:21 2024
+Thu Mar 21 15:28:36 2024
 > exit
 
-Total 0 fatals, 0 errors, 3 warnings, 286 infos.
+Total 0 fatals, 0 errors, 8 warnings, 281 infos.

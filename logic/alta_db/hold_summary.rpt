@@ -1,45 +1,61 @@
 === User constraints ===
 
 Clock transfer report:
-  Worst  hold:   0.615, with clock PIN_HSE
-  Worst  hold:   0.615, with clock PIN_HSI
-  Worst  hold:   0.615, with clock pll_inst|auto_generated|pll1|clk[0]
+  Worst  hold:   0.603, with clock PIN_HSE
+  Worst  hold:   0.603, with clock PIN_HSI
+  Worst  hold:   0.603, with clock pll_inst|auto_generated|pll1|clk[0]
 
 === Auto constraints ===
+
+Clock transfer report:
+  Worst  hold:   6.254, from clock Internal_generated_clock_rv32|gpio4_io_out_data[5] to pll_inst|auto_generated|pll1|clk[0]
+
 Coverage report
-  User constraints covered 1348 connections out of 1372 total, coverage: 98.3%
-  Auto constraints covered 1348 connections out of 1372 total, coverage: 98.3%
+  User constraints covered 1599 connections out of 1687 total, coverage: 94.8%
+  Auto constraints covered 1655 connections out of 1687 total, coverage: 98.1%
 
 
-Hold from macro_inst|ahb2apb_inst|hdone to macro_inst|ahb2apb_inst|hdone, clock PIN_HSI, constraint 0.000, skew 0.043, data 0.215
-  Slack:   0.615
-    Arrival Time:    3.828
+Hold from macro_inst|ahb2apb_inst|haddr[8] to macro_inst|ahb2apb_inst|paddr[8], clock pll_inst|auto_generated|pll1|clk[0], constraint 0.000, skew 0.053, data 0.569
+  Slack:   0.603
+    Arrival Time:    1.453
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
-        0.000    0.000   RR                              top|PIN_HSI =>                      PIN_HSI~input|padio 
-        1.309    1.309   RR                      PIN_HSI~input|padio =>                    PIN_HSI~input|combout 
-        1.309    0.000   RR                    PIN_HSI~input|combout => gclksw_inst|gclk_switch__alta_gclksw|clkin0 
-        1.711    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin0 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
-        1.824    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
-        1.824    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
-        3.334    1.510   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X60_Y3_N0|ClkIn 
-        3.482    0.148   RR               clken_ctrl_X60_Y3_N0|ClkIn =>              clken_ctrl_X60_Y3_N0|ClkOut 
-        3.613    0.131   RR              clken_ctrl_X60_Y3_N0|ClkOut =>        macro_inst|ahb2apb_inst|hdone|Clk 
+        0.000    0.000   RR                              top|PIN_HSE =>                      PIN_HSE~input|padio 
+        1.309    1.309   RR                      PIN_HSE~input|padio =>                    PIN_HSE~input|combout 
+        1.536    0.227   RR                    PIN_HSE~input|combout =>       pll_inst|auto_generated|pll1|clkin 
+      Compensation Path:
+       -2.400   -3.936   RR       pll_inst|auto_generated|pll1|clkfb =>    pll_inst|auto_generated|pll1|clkfbout 
+       -2.400   -0.000   RR    pll_inst|auto_generated|pll1|clkfbout =>       pll_inst|auto_generated|pll1|clkfb 
+      Compensation Path End
+       -1.420    0.980   RR       pll_inst|auto_generated|pll1|clkin =>     pll_inst|auto_generated|pll1|clkout0 D
+       -1.420    0.000   RR     pll_inst|auto_generated|pll1|clkout0 => gclksw_inst|gclk_switch__alta_gclksw|clkin2 D
+       -1.018    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin2 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
+       -0.905    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
+       -0.905    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
+        0.605    1.510   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X57_Y5_N0|ClkIn 
+        0.753    0.148   RR               clken_ctrl_X57_Y5_N0|ClkIn =>              clken_ctrl_X57_Y5_N0|ClkOut 
+        0.884    0.131   RR              clken_ctrl_X57_Y5_N0|ClkOut =>     macro_inst|ahb2apb_inst|haddr[8]|Clk 
       Data Path:
-        3.828    0.215   RR        macro_inst|ahb2apb_inst|hdone|Clk =>          macro_inst|ahb2apb_inst|hdone|Q D
-        3.828    0.000   RR          macro_inst|ahb2apb_inst|hdone|Q =>        macro_inst|ahb2apb_inst|hdone|Qin E
-    Required Time:   3.213
+        1.099    0.215   RR     macro_inst|ahb2apb_inst|haddr[8]|Clk =>       macro_inst|ahb2apb_inst|haddr[8]|Q D
+        1.453    0.354   RR       macro_inst|ahb2apb_inst|haddr[8]|Q =>       macro_inst|ahb2apb_inst|paddr[8]|C E
+    Required Time:   0.850
         0.000    0.000   R                          Latch Clock Edge
       Latch Clock Path:
-        0.000    0.000   RR                              top|PIN_HSI =>                      PIN_HSI~input|padio 
-        1.309    1.309   RR                      PIN_HSI~input|padio =>                    PIN_HSI~input|combout 
-        1.309    0.000   RR                    PIN_HSI~input|combout => gclksw_inst|gclk_switch__alta_gclksw|clkin0 
-        1.711    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin0 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
-        1.824    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
-        1.824    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
-        3.375    1.551   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X60_Y3_N0|ClkIn 
-        3.523    0.148   RR               clken_ctrl_X60_Y3_N0|ClkIn =>              clken_ctrl_X60_Y3_N0|ClkOut 
-        3.656    0.133   RR              clken_ctrl_X60_Y3_N0|ClkOut =>        macro_inst|ahb2apb_inst|hdone|Clk 
-        3.256   -0.400   R                                      Hold
-        3.213   -0.043                               Clock Variation
+        0.000    0.000   RR                              top|PIN_HSE =>                      PIN_HSE~input|padio 
+        1.309    1.309   RR                      PIN_HSE~input|padio =>                    PIN_HSE~input|combout 
+        1.546    0.237   RR                    PIN_HSE~input|combout =>       pll_inst|auto_generated|pll1|clkin 
+      Compensation Path:
+       -2.390   -3.936   RR       pll_inst|auto_generated|pll1|clkfb =>    pll_inst|auto_generated|pll1|clkfbout 
+       -2.390   -0.000   RR    pll_inst|auto_generated|pll1|clkfbout =>       pll_inst|auto_generated|pll1|clkfb 
+      Compensation Path End
+       -1.410    0.980   RR       pll_inst|auto_generated|pll1|clkin =>     pll_inst|auto_generated|pll1|clkout0 D
+       -1.410    0.000   RR     pll_inst|auto_generated|pll1|clkout0 => gclksw_inst|gclk_switch__alta_gclksw|clkin2 D
+       -1.008    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin2 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
+       -0.895    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
+       -0.895    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
+        0.656    1.551   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X57_Y5_N1|ClkIn 
+        0.804    0.148   RR               clken_ctrl_X57_Y5_N1|ClkIn =>              clken_ctrl_X57_Y5_N1|ClkOut 
+        0.937    0.133   RR              clken_ctrl_X57_Y5_N1|ClkOut =>     macro_inst|ahb2apb_inst|paddr[8]|Clk 
+        0.860   -0.077   R                                      Hold
+        0.850   -0.010                               Clock Variation
 

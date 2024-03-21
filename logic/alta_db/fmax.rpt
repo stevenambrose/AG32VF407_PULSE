@@ -1,13 +1,13 @@
 Fmax report
-  User constraint:   8.000MHz, Fmax: 152.045MHz, Clock: PIN_HSE
-  User constraint:  10.000MHz, Fmax: 152.045MHz, Clock: PIN_HSI
-  User constraint: 100.000MHz, Fmax: 152.045MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
+  User constraint:   8.000MHz, Fmax: 142.633MHz, Clock: PIN_HSE
+  User constraint:  10.000MHz, Fmax: 142.633MHz, Clock: PIN_HSI
+  User constraint: 100.000MHz, Fmax: 142.633MHz, Clock: pll_inst|auto_generated|pll1|clk[0]
 
 
 
-Setup from macro_inst|ahb2apb_inst|paddr[4] to macro_inst|gen_per[0].gen_adc.adc_inst|prdata[0], clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew -0.053, data 6.051
-  Slack:   3.423
-    Arrival Time:    7.115
+Setup from rv32 to clken_ctrl_X60_Y4_N0, clock pll_inst|auto_generated|pll1|clk[0], constraint 10.000, skew 1.613, data 8.534
+  Slack:   2.989
+    Arrival Time:    7.526
         0.000    0.000   R                         Launch Clock Edge
       Launch Clock Path:
         0.000    0.000   RR                              top|PIN_HSE =>                      PIN_HSE~input|padio 
@@ -20,23 +20,19 @@ Setup from macro_inst|ahb2apb_inst|paddr[4] to macro_inst|gen_per[0].gen_adc.adc
        -1.410    0.980   RR       pll_inst|auto_generated|pll1|clkin =>     pll_inst|auto_generated|pll1|clkout0 D
        -1.410    0.000   RR     pll_inst|auto_generated|pll1|clkout0 => gclksw_inst|gclk_switch__alta_gclksw|clkin2 D
        -1.008    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin2 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
-       -0.895    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
-       -0.895    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
-        0.656    1.551   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X59_Y3_N0|ClkIn 
-        0.804    0.148   RR               clken_ctrl_X59_Y3_N0|ClkIn =>              clken_ctrl_X59_Y3_N0|ClkOut 
-        0.937    0.133   RR              clken_ctrl_X59_Y3_N0|ClkOut =>     macro_inst|ahb2apb_inst|paddr[4]|Clk 
+       -1.008    0.000   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>                             rv32|sys_clk 
       Data Path:
-        1.172    0.235   RF     macro_inst|ahb2apb_inst|paddr[4]|Clk =>       macro_inst|ahb2apb_inst|paddr[4]|Q D
-        2.042    0.870   FF       macro_inst|ahb2apb_inst|paddr[4]|Q => macro_inst|gen_per[0].gen_adc.adc_inst|seq_reg[1][4]|B 
-        2.576    0.534   FR macro_inst|gen_per[0].gen_adc.adc_inst|seq_reg[1][4]|B => macro_inst|gen_per[0].gen_adc.adc_inst|seq_reg[1][4]|LutOut 
-        2.977    0.401   RR macro_inst|gen_per[0].gen_adc.adc_inst|seq_reg[1][4]|LutOut =>       macro_inst|ahb2apb_inst|paddr[6]|B 
-        3.348    0.371   RF       macro_inst|ahb2apb_inst|paddr[6]|B =>  macro_inst|ahb2apb_inst|paddr[6]|LutOut 
-        4.749    1.401   FF  macro_inst|ahb2apb_inst|paddr[6]|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[7]|D 
-        4.857    0.108   FF macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[7]|D => macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[7]|LutOut 
-        5.242    0.385   FF macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[7]|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[0]|B 
-        5.686    0.444   FF macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[0]|B => macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[0]|LutOut 
-        7.115    1.429   FF macro_inst|gen_per[0].gen_adc.adc_inst|apb_db[0]|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|prdata[0]|D E
-    Required Time:  10.538
+        2.652    3.660   RF                             rv32|sys_clk =>                  rv32|ext_dma_DMACCLR[0] D
+        4.852    2.200   FF                  rv32|ext_dma_DMACCLR[0] => macro_inst|gen_per[0].gen_adc.adc_inst|comb~0|D 
+        4.956    0.104   FR macro_inst|gen_per[0].gen_adc.adc_inst|comb~0|D => macro_inst|gen_per[0].gen_adc.adc_inst|comb~0|LutOut 
+        5.364    0.408   RR macro_inst|gen_per[0].gen_adc.adc_inst|comb~0|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next~1|D 
+        5.465    0.101   RR macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next~1|D => macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next~1|LutOut 
+        5.869    0.404   RR macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next~1|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next|C 
+        6.153    0.284   RF macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next|C => macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next|LutOut 
+        6.766    0.613   FF macro_inst|gen_per[0].gen_adc.adc_inst|adc_seq_next|LutOut => macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt[2]~11|D 
+        6.870    0.104   FR macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt[2]~11|D => macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt[2]~11|LutOut 
+        7.526    0.656   RR macro_inst|gen_per[0].gen_adc.adc_inst|seq_cnt[2]~11|LutOut =>               clken_ctrl_X60_Y4_N0|ClkEn E
+    Required Time:  10.515
        10.000   10.000   R                          Latch Clock Edge
       Latch Clock Path:
        10.000    0.000   RR                              top|PIN_HSE =>                      PIN_HSE~input|padio 
@@ -51,9 +47,7 @@ Setup from macro_inst|ahb2apb_inst|paddr[4] to macro_inst|gen_per[0].gen_adc.adc
         8.982    0.402   RR gclksw_inst|gclk_switch__alta_gclksw|clkin2 => gclksw_inst|gclk_switch__alta_gclksw|clkout 
         9.095    0.113   RR gclksw_inst|gclk_switch__alta_gclksw|clkout =>            gclksw_inst|gclk_switch|inclk 
         9.095    0.000   RR            gclksw_inst|gclk_switch|inclk =>           gclksw_inst|gclk_switch|outclk 
-       10.605    1.510   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X59_Y6_N1|ClkIn 
-       10.753    0.148   RR               clken_ctrl_X59_Y6_N1|ClkIn =>              clken_ctrl_X59_Y6_N1|ClkOut 
-       10.884    0.131   RR              clken_ctrl_X59_Y6_N1|ClkOut => macro_inst|gen_per[0].gen_adc.adc_inst|prdata[0]|Clk 
-       10.528   -0.356   R                                     Setup
-       10.538    0.010                               Clock Variation
+       10.605    1.510   RR           gclksw_inst|gclk_switch|outclk =>               clken_ctrl_X60_Y4_N0|ClkIn 
+       10.505   -0.100   R                                     Setup
+       10.515    0.010                               Clock Variation
 
