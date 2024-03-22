@@ -64,14 +64,7 @@ int main(void)
   GPIO_SetOutput(GPIO4,GPIO_BIT5);
   GPIO_SetHigh(GPIO4,GPIO_BIT5);
   //TestGpio();
-    xTaskCreate(
-     TestGpio,
-    "TestGpio",
-    configMINIMAL_STACK_SIZE,
-    NULL,
-    mainEVENT_SEMAPHORE_TASK_PRIORITY,
-    &taskGPIO  
-    );
+    xTaskCreate(TestGpio,"TestGpio",configMINIMAL_STACK_SIZE,NULL, mainEVENT_SEMAPHORE_TASK_PRIORITY,&taskGPIO);
     vTaskStartScheduler();
     for(;;);
 }
