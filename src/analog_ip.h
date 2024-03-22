@@ -35,17 +35,6 @@ typedef enum
   ADC_CHANNEL3  = 4 ,
   ADC_CHANNEL4  = 5 ,
   ADC_CHANNEL5  = 6 ,
-  // ADC_CHANNEL6  = 7 ,
-  // ADC_CHANNEL7  = 8 ,
-  // ADC_CHANNEL8  = 9 ,
-  // ADC_CHANNEL9  = 10,
-  // ADC_CHANNEL10 = 11,
-  // ADC_CHANNEL11 = 12,
-  // ADC_CHANNEL12 = 13,
-  // ADC_CHANNEL13 = 14,
-  // ADC_CHANNEL14 = 15,
-  // ADC_CHANNEL15 = 16,
-  // ADC_CHANNEL16 = 17,
 } ADC_ChannelNumTypeDef;
 
 typedef enum
